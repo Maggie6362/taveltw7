@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="漫旅台灣">
+  <title>漫旅台灣 - 吉卜力風清新行程小助手</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+  <!-- iOS Safari 專用真實 PNG Base64 Apple Touch Icon (青空、綠意丘陵與吉卜力紅色電車) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" sizes="180x180" href="data:image/png;base64,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">
+  <link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAHu0lEQVR4nO3dvYscdRjA8edCLIwYwStCEBTfarE98NArsxevCAlCKrVJ4V9gZeVfkCKNWgkSSRGTs4wS4dpgHV+IIImBBIwkEk6Ixfk752ZnZufl9/I8z34/cJDb7N3O7Hzvt7+dmd1d2X388IkAThwqvQBATAQNVwgarhA0XCFouELQcIWg4QpBwxWChisEDVcIGq4QNFwhaLhC0HCFoOHK4dILgHT+eXh78M8cfuZ4giXJZ4UT/P0YE/Ai1gInaONSRNzGQtwEbVTOkOs0h03QxpQMuU5j2ARthKaQ6zSFzW47AzTHLKJr+RihFdMUSl+lR2tGaKUsxixSfrkJWqHSUUxVcvkJWhnrMQel1oOgFfESc1BifQhaCW8xB7nXi6AV8BpzkHP92G1XmKWYT508M3fZpSsXe18nxy49gi7IWsz1eOuX97lO6qgJuiArQbeFWv1/kfnRuul3pA6aOXQhXmLu69KVi3Lq5Jnk603QBViJOZWU68+Uo4BlD1ok3VyaETozYt6T6n4gaLhC0BkxOh+U4v4gaLhC0JkwOjeLfb8QNFwhaLjCfugItjbemrvs8rUf9v/NdGOxWPulGaEnaoq563KkxQg9QYi2Oho3/R8j9GKM0IV1xVy9nJE6L4KGCrEexZhy1HSNqG+/sCsiIt///tSo373o52OcpmlZjGkHI3RF6elB08uXMAwj9H9CzB+feLH1Ojs//iwiImtvvDrqNhb9/Kff/iYiyztSM0IDNQQNVwgarvApWMpNeaK4jHNxRmjFpu71WMa9JozQSoUY3/nw3dG/47vPvon2NgRWMELDFYKGKwQNVwgaKnD6KNCAoOEKQcMV12fbxT4dNPX50Dlp2jcd840bGaHhCkcKB5g6smoYmb1zPeUYY9GLX6dI8ervPh8HoVns94lmygFXCDqjHB9rZkmK+8PdlKP0C10tyz1tIegOhBxPjrD5jJUOxByX5RcGmB+h6zFvX98ptCT2zdbXDnyfaqRO+VzC9AhNzHHV778UIzWfJNsTMcdh/X40O+Wojs5hI9QfMmNr29gpb7crsBS323Rfxpp65Nht6e7Q94Xt60l+77nZeuPlqf+IZutrjVGnut2225sq1z54d0GXkuIPqe2PKNXt9rm9MXIeUDIV9O2//iy9CBgo99FRE0H3CXm2vpZsuoFxShzqVx00I7Jdpc5bURk0IdtW8iQsVUETsn2lzyhUEzQx21Y65EDFkUJitk1LzCKFR2hCtk1TyEGxoGPGzC67vDSGHBQJmpHZJs0hB9mD9hpzqsPGGm7XQshB1qBTxlwqqO3rO0XOtkt1u9ZPH80WdMqYS2+EUrdfer01ynI+9JiYz21tJlgSxJTizXimSr4f2uucGTqpOLDS5MLlq6UXAR00js4iiaccU0bn+pTj/MaxqYuDiT669seB7zVGnWyEJmZ/6ttB4/uhJAk65ryZmHXRvj2STDlijc7hzqs+1Gm/Q+vqD9NV1tZFZG99vnz6eREROfv3fRHRNfWIvh865ujcFEO4zGIMSE/N+dBdrm6/t//vzdlXBZdkOP7w8oo6h06xz7kac/X7rodyLC+1+6GBMaIFzRFBaKB+hK7PmcP3zE3RJMqTwtSjs7Ungp6d3zgmZxU/f1E9Qp/fODY3Ejddhrw03/8mdttpvgOhy+QRmieD0ET1lAMYiqDhyqSgmW5AG0ZouELQcIWg4QpBw5XRB1YsPyH0+CqSNhbXZwoTRwpj6XMOtaVXxHhbnxiWZspR3/j3Hjya++q6vjbe1ieWpQi6ujGbNnbb/2mNwNv6xOQ+6LARuzZ8XfW62iLwtj6xqQu6+hZgU+/8WBtPSwRa1qf685rewkBEYdB1MTZi20i2evTI/teQnyut5Ppo+eNuM/qNZlLvtpv6dmD1eWZV2OBfb///aHB6ttl53THLEJOG9bHw3nZqgxaJ8x7RTaPS6tEjBzZ+cHq22Xp9LbSsj8aYRZRPOVK8pW7bxhfZG+E0xdtHifXRGrOIgQMrIWre0b88zSEH6oMOho7WKf4APvni8+i/s/dtv/9B9N9pIdChVE85Urj34NH+E6a6tjmnZt7WZ6rRI/TxZ58b9MTw3NZm9Dnxnft3F15n9eiRxo16erbZuFeg6ec1ibk+N27dbL2dN196fcJSljPp/aGnBj0k8j7x1oWH6a79tsGi65ScbgSl18dC5Nnm0BcuX+0d8Jh4u7SNaosejrWNzkGp9Wka0bVFXmwOHeK+c//u3FcssUZVDaOziM71uXHr5txXSVmDDqN0iDb2SNwkbLyuQ8J11etqiTmwsD4lA5/8GSt95tHVcMM8MHco9d1efY6gaYu5yur6pJ6iJAk6x8g7xpB9uRo2/iIe1id24NGCDhH/8utP05cKS+WVl18TkThxT9rLUfoJAHyp9jQ27sEjNBEjtyFx9w6akFFan7A7gyZiaNUWd2PQhAwr6mEfCJqQYVUIe2X38cMnhAwvDhEzPFm6E/zhG0HDFYKGKwQNVwgarhA0XCFouELQcIWg4QpBwxWChisEDVcIGq4QNFwhaLhC0HCFoOEKQcMVgoYrBA1XCBquEDRcIWi4QtBwhaDhCkHDFYKGKwQNVwgarhA0XCFouELQcIWg4QpBw5XJH40MaPIvDwkM+qwwxRYAAAAASUVORK5CYII=">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Zen Maru Gothic"', '"Noto Sans TC"', 'sans-serif'],
+          },
+          colors: {
+            ghibli: {
+              cream: '#fdfbf7',
+              canvas: '#f4ede1',
+              border: '#e4d8c5',
+              grass: '#4a856f',
+              grassDark: '#356352',
+              grassLight: '#eaf4ee',
+              sky: '#5c94a6',
+              skyLight: '#e7f2f5',
+              sun: '#de7d49',
+              sunLight: '#fcf0e7',
+              wood: '#8c6d53',
+              ink: '#2d3d36',
+              inkMuted: '#687b73',
+            }
+          },
+          boxShadow: {
+            'ghibli': '0 4px 16px -2px rgba(74, 133, 111, 0.12), 0 2px 6px rgba(140, 109, 83, 0.08)',
+            'paper': '0 2px 8px rgba(92, 64, 45, 0.06)',
+            'float': '0 12px 28px -6px rgba(45, 61, 54, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    body {
+      background-color: #f7f3eb;
+      background-image: radial-gradient(#ebe3d5 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: #2d3d36;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 20px); }
+
+    .ghibli-card {
+      border-radius: 24px;
+      border: 1.5px solid #e5dac9;
+      background: #ffffff;
+      box-shadow: 0 4px 14px rgba(100, 85, 70, 0.05);
+    }
+    .ghibli-btn-primary {
+      background: linear-gradient(135deg, #4f8b74 0%, #3a6c59 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(58, 108, 89, 0.28);
+    }
+    .ghibli-btn-primary:active {
+      transform: scale(0.97);
+    }
+    .tab-active {
+      background: #4f8b74 !important;
+      color: #ffffff !important;
+      border-color: #3a6c59 !important;
+      box-shadow: 0 3px 10px rgba(79, 139, 116, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between max-w-md mx-auto border-x border-[#e3d7c3] relative pb-28 select-none">
+
+  <!-- 頂部導航列 (優化排版：已離線儲存置於標題旁，保留圖示且同一列排版) -->
+  <header class="sticky top-0 z-40 bg-[#fdfbf7]/95 backdrop-blur-md border-b border-[#e4d8c5] px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-2 min-w-0 flex-1">
+      <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#4a856f] to-[#7dbba5] text-white flex items-center justify-center shadow-sm relative overflow-hidden shrink-0">
+        <i data-lucide="trees" class="w-4.5 h-4.5 text-emerald-100"></i>
+        <div class="absolute -bottom-1 w-full h-1 bg-[#de7d49]"></div>
+      </div>
+      <div class="min-w-0">
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <h1 class="font-black text-base sm:text-lg text-[#2d3d36] tracking-tight whitespace-nowrap">漫旅台灣</h1>
+          <!-- 「已離線儲存」移至原吉卜力慢活位置 -->
+          <span id="save-status" class="text-[9px] sm:text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-bold border border-emerald-200 flex items-center gap-1 transition-opacity duration-300 whitespace-nowrap shrink-0">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>已離線儲存
+          </span>
+        </div>
+        <div class="mt-0.5">
+          <p class="text-[10px] sm:text-[11px] text-[#687b73] font-medium whitespace-nowrap truncate" id="header-subtitle">宜蘭・2日遊・孝親暖心</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 右側按鈕：保留精緻圖示，並設置強制單列 flex-row 與 whitespace-nowrap -->
+    <div class="flex items-center gap-1.5 shrink-0">
+      <button id="btn-open-my-trips" class="flex flex-row items-center gap-1 whitespace-nowrap bg-[#eaf4ee] hover:bg-[#d8eedf] text-[#2c6351] px-2.5 py-1.5 rounded-xl text-xs font-bold transition border border-[#bcdbc6] shadow-paper" title="我的所有行程庫存檔">
+        <i data-lucide="bookmark" class="w-3.5 h-3.5 text-[#4a856f] shrink-0"></i>
+        <span class="whitespace-nowrap">行程庫</span>
+      </button>
+      <button id="btn-open-filter" class="flex flex-row items-center gap-1 whitespace-nowrap bg-[#f3ecdf] hover:bg-[#eae1d0] text-[#3a5247] px-2.5 py-1.5 rounded-xl text-xs font-bold transition border border-[#dcd0bc] shadow-paper">
+        <i data-lucide="sliders" class="w-3.5 h-3.5 text-[#de7d49] shrink-0"></i>
+        <span class="whitespace-nowrap">旅程設定</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 主內容區：上方留白空間大幅加大 -->
+  <main class="px-4.5 py-4 space-y-5 flex-1">
+    
+    <!-- 溫暖日系手繪主看板 (緊湊高度，不擴大綠框，文字精準下移) -->
+    <div class="bg-gradient-to-br from-[#4f8b74] via-[#437a65] to-[#336150] text-white px-5 py-4 rounded-3xl shadow-ghibli relative overflow-hidden border border-[#3b6f5c]">
+      <div class="absolute -right-4 -top-4 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+      <div class="absolute right-6 -bottom-6 w-20 h-20 bg-[#fde047]/15 rounded-full blur-lg pointer-events-none"></div>
+
+      <div class="relative z-10">
+        <!-- 最上方標籤列下移 mt-2.5，維持 mb-2.5，保持緊湊 -->
+        <div class="flex items-center gap-1.5 mt-2.5 mb-2 flex-wrap">
+          <span id="badge-dest" class="bg-white/25 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full leading-normal">宜蘭</span>
+          <span id="badge-days" class="bg-white/25 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full leading-normal">2 日遊</span>
+          <span id="badge-group" class="bg-[#de7d49] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-xs leading-normal">❤️ 孝親慢活</span>
+          <span id="badge-transport" class="bg-white/25 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full leading-normal">🚗 自駕漫遊</span>
+        </div>
+
+        <h2 id="plan-title" class="text-lg sm:text-xl font-black tracking-tight leading-snug mt-1.5">松羅綠意與冬山水岸舒心慢旅</h2>
+        <p id="plan-desc" class="text-xs text-emerald-100/90 mt-1 mb-2.5 leading-relaxed font-normal">
+          「步道平緩如茵、微風拂面，每站皆備有林蔭歇椅與養生在地小食。」
+        </p>
+
+        <div class="pt-2.5 border-t border-white/20 flex items-center justify-between text-xs">
+          <span class="text-emerald-100 flex items-center gap-1 font-medium">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-200"></i>
+            每日精選 5+ 站點 (含美饌)
+          </span>
+          <button id="btn-open-gmaps-day" class="whitespace-nowrap bg-[#fefae0] hover:bg-[#fff7cd] text-[#335647] px-3 py-1.5 rounded-xl font-bold text-[11px] shadow-sm flex items-center gap-1 transition">
+            <i data-lucide="navigation" class="w-3 h-3 text-[#de7d49]"></i>
+            導航當日全路線
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 每日行程切換分頁 Tab -->
+    <div class="space-y-1.5">
+      <div class="flex items-center justify-between px-1">
+        <span class="text-xs font-bold text-[#687b73] flex items-center gap-1">
+          <i data-lucide="calendar" class="w-3.5 h-3.5 text-[#de7d49]"></i> 每日行程時光
+          <span class="text-[10px] text-[#8c6d53] font-normal bg-[#f2e9dc] px-1.5 py-0.2 rounded-md">長按⋮⋮可拖曳排程</span>
+        </span>
+        <span class="text-[11px] text-[#4a856f] font-bold" id="tab-indicator">共 2 天・每日 5 個精選地點</span>
+      </div>
+      <div id="day-tabs-container" class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+        <!-- 動態渲染 Tabs -->
+      </div>
+    </div>
+
+    <!-- 站點清單 -->
+    <div id="timeline-list" class="space-y-3.5">
+      <!-- 動態站點卡片 -->
+    </div>
+
+    <!-- 自行增加景點按鈕 -->
+    <div class="pt-1">
+      <button id="btn-add-spot" class="w-full bg-[#fdfbf7] hover:bg-[#f3ede1] border-2 border-dashed border-[#cbbca3] hover:border-[#4a856f] text-[#3a5247] p-3.5 rounded-3xl font-bold text-xs shadow-paper flex items-center justify-center gap-2 group transition duration-200">
+        <div class="w-6 h-6 rounded-full bg-[#eaf4ee] text-[#4a856f] group-hover:bg-[#4a856f] group-hover:text-white flex items-center justify-center transition">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+        </div>
+        <span>加入心儀的私房景點、茶坊或咖啡店</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- 底部常駐導航列 -->
+  <div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#fdfbf7]/95 backdrop-blur-md border-t border-[#e3d7c3] px-3.5 sm:px-4 py-2.5 sm:py-3 safe-bottom z-40 shadow-ghibli flex items-center gap-2">
+    <button id="btn-export-kml" class="flex-1 whitespace-nowrap bg-[#f4ede1] hover:bg-[#eae1d0] text-[#3d5047] py-2.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-1 border border-[#d8cbba] transition shadow-paper">
+      <i data-lucide="download" class="w-3.5 h-3.5 text-[#8c6d53]"></i>
+      <span>匯出地圖檔</span>
+    </button>
+    <button id="btn-copy-line" class="flex-1 whitespace-nowrap bg-[#e8f5ec] hover:bg-[#d8eedf] text-[#2c774d] py-2.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-1 border border-[#bcdbc6] transition shadow-paper">
+      <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+      <span>LINE 轉傳</span>
+    </button>
+    <button id="btn-direct-gmaps" class="flex-1 whitespace-nowrap ghibli-btn-primary py-2.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-1 transition">
+      <i data-lucide="map" class="w-3.5 h-3.5 text-emerald-100"></i>
+      <span>Google 導航</span>
+    </button>
+  </div>
+
+
+  <!-- ★ 我的行程庫管理抽屜 (My Trips Drawer) ★ -->
+  <div id="trips-sheet" class="fixed inset-0 bg-[#2d3d36]/50 backdrop-blur-xs z-50 hidden flex flex-col justify-end transition-opacity">
+    <div class="bg-[#fdfbf7] rounded-t-[32px] max-h-[85vh] overflow-y-auto p-5 space-y-4 shadow-2xl border-t-2 border-[#e4d8c5] max-w-md mx-auto w-full">
+      <div class="flex items-center justify-between pb-2 border-b border-[#ebdcca]">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-[#eaf4ee] text-[#4a856f] flex items-center justify-center">
+            <i data-lucide="folder-heart" class="w-4.5 h-4.5"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-[#2d3d36] text-base">我的漫旅行程庫</h3>
+            <p class="text-[10px] text-[#687b73]">可永久收藏多組行程計畫，隨時切換出遊</p>
+          </div>
+        </div>
+        <button id="btn-close-trips" class="p-1.5 text-[#687b73] hover:text-[#2d3d36] bg-[#f2e9dc] rounded-full">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- 另存當前行程按鈕區 -->
+      <div class="bg-gradient-to-r from-[#eaf4ee] to-[#f4ede1] p-3.5 rounded-2xl border border-[#c6e4d4] flex items-center justify-between gap-3">
+        <div class="flex-1">
+          <div class="text-xs font-bold text-[#2d3d36]">將當前規劃保存到庫中</div>
+          <div class="text-[10px] text-[#687b73] mt-0.5" id="current-saving-name">目前：宜蘭 2日遊</div>
+        </div>
+        <button id="btn-save-as-new" class="ghibli-btn-primary px-3.5 py-2 rounded-xl text-xs font-bold shrink-0 flex items-center gap-1 shadow-sm">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i> 存為新行程
+        </button>
+      </div>
+
+      <!-- 行程庫清單容器 -->
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between text-xs font-bold text-[#556b60] px-1">
+          <span>已收藏的行程列表</span>
+          <span id="saved-trips-count" class="text-[10px] bg-[#f2e9dc] text-[#7d6046] px-2 py-0.5 rounded-full">0 組行程</span>
+        </div>
+        <div id="saved-trips-list" class="space-y-2 max-h-[46vh] overflow-y-auto no-scrollbar py-0.5">
+          <!-- 動態載入已存行程 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 條件篩選抽屜 (Bottom Sheet) -->
+  <div id="filter-sheet" class="fixed inset-0 bg-[#2d3d36]/50 backdrop-blur-xs z-50 hidden flex flex-col justify-end transition-opacity">
+    <div class="bg-[#fdfbf7] rounded-t-[32px] max-h-[88vh] overflow-y-auto p-5 space-y-4 shadow-2xl border-t-2 border-[#e4d8c5] max-w-md mx-auto w-full">
+      <div class="flex items-center justify-between pb-2 border-b border-[#ebdcca]">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-xl bg-[#eaf4ee] text-[#4a856f] flex items-center justify-center">
+            <i data-lucide="compass" class="w-4.5 h-4.5"></i>
+          </div>
+          <h3 class="font-extrabold text-[#2d3d36] text-base">挑選您的漫旅篇章</h3>
+        </div>
+        <button id="btn-close-filter" class="p-1.5 text-[#687b73] hover:text-[#2d3d36] bg-[#f2e9dc] rounded-full">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- 1. 全台熱門旅遊地 -->
+      <div>
+        <label class="block text-xs font-bold text-[#3a5247] mb-1.5 flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#de7d49]"></i> 旅遊目的地
+        </label>
+        <select id="select-destination" class="w-full bg-white border border-[#d8cbba] rounded-2xl px-3 py-2.5 text-xs font-bold text-[#2d3d36] focus:ring-2 focus:ring-[#4a856f] focus:outline-none">
+          <optgroup label="北部地區 (山城茶香與海岸)">
+            <option value="yilan" selected>宜蘭 (礁溪溫泉/羅東林業/冬山水岸)</option>
+            <option value="taipei">台北/新北 (九份金瓜石/淡水夕照/陽明山)</option>
+            <option value="taoyuan">桃園 (大溪老街/角板山樟樹林)</option>
+            <option value="hsinchu">新竹 (北埔客家老街/尖石山林/司馬庫斯)</option>
+          </optgroup>
+          <optgroup label="中部地區 (湖光山色與藝文)">
+            <option value="taichung">台中 (草悟道綠廊/高美濕地/霧峰林家)</option>
+            <option value="nantou">南投 (日月潭湖畔/清境農場/溪頭森林)</option>
+            <option value="changhua">彰化 (鹿港古蹟老街/田尾公路花園)</option>
+            <option value="miaoli">苗栗 (三義舊山線鐵道/南庄桂花巷)</option>
+          </optgroup>
+          <optgroup label="南部地區 (古都風華與海島)">
+            <option value="tainan">台南 (赤崁文化/安平水榭/奇美花園)</option>
+            <option value="kaohsiung">高雄 (駁二港灣/旗津海島/旗山老街)</option>
+            <option value="chiayi">嘉義 (阿里山森鐵/檜意森活村/故宮南院)</option>
+            <option value="pingtung">屏東 (墾丁珊瑚礁海岸/恆春古城/小琉球)</option>
+          </optgroup>
+          <optgroup label="東部與離島 (山海仙境)">
+            <option value="hualien">花蓮 (太魯閣峽谷/七星潭浪濤/縱谷糖廠)</option>
+            <option value="taitung">台東 (池上稻浪/知本溫泉/加路蘭水岸)</option>
+            <option value="penghu">澎湖 (跨海大橋/奎壁山摩西分海)</option>
+            <option value="kinmen">金門 (洋樓聚落/翟山坑道/紅磚古厝)</option>
+          </optgroup>
+          <option value="custom">✏️ 自行輸入目的地城市或景點...</option>
+        </select>
+        
+        <input type="text" id="input-custom-dest" placeholder="請輸入想去的地方，例如：清境農場、阿里山奮起湖" class="hidden w-full mt-2 bg-white border border-[#d8cbba] rounded-2xl px-3 py-2 text-xs font-bold text-[#2d3d36] focus:ring-2 focus:ring-[#4a856f] focus:outline-none">
+      </div>
+
+      <!-- 2. 旅遊天數 -->
+      <div>
+        <label class="block text-xs font-bold text-[#3a5247] mb-1.5 flex items-center gap-1">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-[#de7d49]"></i> 停留天數
+        </label>
+        <div class="grid grid-cols-4 gap-2" id="days-selector">
+          <button type="button" data-days="1" class="day-btn py-2 text-xs font-bold rounded-2xl border border-[#d8cbba] bg-white text-[#475e54]">1 日遊</button>
+          <button type="button" data-days="2" class="day-btn py-2 text-xs font-bold rounded-2xl border-2 border-[#4a856f] bg-[#eaf4ee] text-[#2c6351]">2 日遊</button>
+          <button type="button" data-days="3" class="day-btn py-2 text-xs font-bold rounded-2xl border border-[#d8cbba] bg-white text-[#475e54]">3 日遊</button>
+          <button type="button" data-days="custom" class="day-btn py-2 text-xs font-bold rounded-2xl border border-[#d8cbba] bg-white text-[#475e54]">自訂</button>
+        </div>
+        <div id="custom-days-box" class="hidden mt-2 flex items-center gap-2">
+          <input type="number" id="input-custom-days" min="1" max="7" value="4" class="w-20 bg-white border border-[#d8cbba] rounded-xl px-2.5 py-1.5 text-xs font-bold text-center">
+          <span class="text-xs text-[#687b73] font-medium">天 (建議 1 至 5 天遊程)</span>
+        </div>
+      </div>
+
+      <!-- 3. 成員風格偏好 (孝親慢活、家庭、年輕活力) -->
+      <div>
+        <label class="block text-xs font-bold text-[#3a5247] mb-1.5 flex items-center gap-1">
+          <i data-lucide="heart" class="w-3.5 h-3.5 text-[#de7d49]"></i> 同行成員風格
+        </label>
+        <div class="space-y-2">
+          <!-- 孝親慢活 -->
+          <div data-group="senior" class="group-card cursor-pointer p-3 rounded-2xl border-2 border-[#4a856f] bg-[#eaf4ee]/80 flex items-center gap-3 transition">
+            <div class="w-8 h-8 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+              <i data-lucide="smile" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#2d3d36] flex items-center gap-1">
+                孝親慢活模式
+                <span class="text-[10px] bg-rose-50 text-rose-700 px-1.5 py-0.2 rounded font-semibold border border-rose-200">長輩暖心</span>
+              </div>
+              <div class="text-[11px] text-[#5b7367]">平坦無梯少走動、停留充裕、有洗手間與陰涼坐歇點</div>
+            </div>
+          </div>
+          <!-- 成年家庭 -->
+          <div data-group="family" class="group-card cursor-pointer p-3 rounded-2xl border border-[#d8cbba] bg-white flex items-center gap-3 transition">
+            <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+              <i data-lucide="users" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#2d3d36]">成年親友・家庭共遊</div>
+              <div class="text-[11px] text-[#5b7367]">兼具自然舒心與地標散步，老少皆宜</div>
+            </div>
+          </div>
+          <!-- 年輕活力 -->
+          <div data-group="youth" class="group-card cursor-pointer p-3 rounded-2xl border border-[#d8cbba] bg-white flex items-center gap-3 transition">
+            <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[#2d3d36]">年輕活力・打卡探店</div>
+              <div class="text-[11px] text-[#5b7367]">網美秘境、文創手作選品、人氣排隊美食與夜市巡禮</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 交通方式 -->
+      <div>
+        <label class="block text-xs font-bold text-[#3a5247] mb-1.5 flex items-center gap-1">
+          <i data-lucide="car" class="w-3.5 h-3.5 text-[#de7d49]"></i> 交通方式
+        </label>
+        <div class="grid grid-cols-2 gap-2">
+          <div data-transport="drive" class="transport-card cursor-pointer p-2.5 rounded-2xl border-2 border-[#4a856f] bg-[#eaf4ee] flex items-center gap-2">
+            <i data-lucide="car" class="w-4 h-4 text-[#356352]"></i>
+            <span class="text-xs font-bold text-[#2d3d36]">自行駕車漫遊</span>
+          </div>
+          <div data-transport="public" class="transport-card cursor-pointer p-2.5 rounded-2xl border border-[#d8cbba] bg-white flex items-center gap-2">
+            <i data-lucide="bus" class="w-4 h-4 text-[#687b73]"></i>
+            <span class="text-xs font-bold text-[#2d3d36]">大眾鐵道/好行</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <button id="btn-apply-filter" class="w-full ghibli-btn-primary font-bold py-3.5 rounded-2xl text-xs transition shadow-md">
+          重新編織專屬行程 (每日 5+ 站點)
+        </button>
+        <button id="btn-reset-default" type="button" class="w-full bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-bold py-2.5 rounded-2xl text-xs transition">
+          🔄 清除自訂修改，還原為系統推薦
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 自行增加景點彈窗 -->
+  <div id="add-modal" class="fixed inset-0 bg-[#2d3d36]/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#fdfbf7] rounded-3xl max-w-sm w-full p-5 space-y-3.5 shadow-2xl border-2 border-[#e4d8c5]">
+      <div class="flex items-center justify-between border-b border-[#ebdcca] pb-2">
+        <h4 class="font-bold text-[#2d3d36] text-sm flex items-center gap-1.5">
+          <i data-lucide="map-pin-plus" class="w-4 h-4 text-[#de7d49]"></i> 自行新增景點 / 餐廳
+        </h4>
+        <button id="btn-close-modal" class="text-[#687b73] p-1"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <form id="form-add-spot" class="space-y-3">
+        <div>
+          <label class="block text-[11px] font-bold text-[#3a5247] mb-1">景點或店家名稱 *</label>
+          <input type="text" id="add-name" required placeholder="例如：羅東夜市、某某日系景觀咖啡" class="w-full bg-white border border-[#d8cbba] rounded-2xl px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-[#4a856f] focus:outline-none">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-bold text-[#3a5247] mb-1">預計停留時段</label>
+            <input type="text" id="add-time" placeholder="例如：15:00 - 16:30" class="w-full bg-white border border-[#d8cbba] rounded-2xl px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-[#4a856f] focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-[#3a5247] mb-1">類型類別</label>
+            <select id="add-type" class="w-full bg-white border border-[#d8cbba] rounded-2xl px-2.5 py-2 text-xs font-bold text-[#2d3d36] focus:ring-2 focus:ring-[#4a856f] focus:outline-none">
+              <option value="美食">美味食光</option>
+              <option value="景點">風景漫步</option>
+              <option value="休憩">茶席咖啡</option>
+              <option value="體驗">手作美拍</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-[#3a5247] mb-1">貼心註記 (無障礙、停車或招牌點心)</label>
+          <input type="text" id="add-note" placeholder="例如：備有無障礙斜坡、長輩坐椅、必點招牌冰" class="w-full bg-white border border-[#d8cbba] rounded-2xl px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-[#4a856f] focus:outline-none">
+        </div>
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" id="btn-cancel-add" class="px-3.5 py-2 rounded-2xl border border-[#d8cbba] text-xs font-bold text-[#687b73] bg-white">取消</button>
+          <button type="submit" class="px-4 py-2 rounded-2xl ghibli-btn-primary text-xs font-bold shadow-sm">加入今日行程</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast 提示元件 -->
+  <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-[#2d3d36] text-[#fefae0] px-4 py-2.5 rounded-2xl shadow-xl text-xs font-bold flex items-center gap-2 transform -translate-y-20 opacity-0 transition-all duration-300 z-50 pointer-events-none">
+    <i data-lucide="check-circle" class="w-4 h-4 text-[#86efac]"></i>
+    <span id="toast-text">已更新行程！</span>
+  </div>
+
+  <script>
+    // ★ 全台具體著名地標、國定古蹟與在地名店專屬資料庫 (每日 5 站，天天不同，嚴格區分族群) ★
+    const GENERATOR_DATABASE = {
+      tainan: {
+        name: "台南",
+        senior: [
+          // Day 1: 府城中西區文化古蹟與養生巡禮
+          [
+            { time: "09:30 - 11:00", name: "台南孔廟與國立台灣文學館", type: "景點", note: "全台首學綠蔭環繞，紅瓦古建築平緩好行，全平地無高落差階梯，漫步大榕樹下十分涼爽。", tag: "平緩古蹟", lat: 22.9904, lng: 120.2045 },
+            { time: "11:30 - 13:00", name: "阿裕牛肉涮涮鍋 (崑崙店)", type: "美食", note: "溫體鮮牛肉高湯溫潤甘甜，肉質軟嫩好入口易消化，備有大平面停車場與無障礙電梯。", tag: "溫體牛肉", lat: 22.9234, lng: 120.2450 },
+            { time: "13:30 - 15:00", name: "奇美博物館 (阿波羅噴泉與常設展)", type: "景點", note: "全館友善無障礙電梯與平緩坡道，館內空調涼爽，設有免費輪椅借用與接駁車服務。", tag: "無障礙推薦", lat: 22.9348, lng: 120.2260 },
+            { time: "15:30 - 16:30", name: "府中街古道茶席 (修安扁擔豆花)", type: "休憩", note: "孔廟對面林蔭步行小街，無車輛喧囂，坐歇品嚐古法純手工豆花與有機黑豆茶。", tag: "午後小吃", lat: 22.9899, lng: 120.2052 },
+            { time: "17:00 - 18:30", name: "赤崁樓古蹟夜色漫步 & 度小月擔仔麵", type: "美食", note: "夜間燈火映照荷蘭普羅民遮城古牆，品嚐百年肉燥香氣的傳統擔仔麵與清蒸蝦丸。", tag: "著名古蹟", lat: 22.9975, lng: 120.2025 }
+          ],
+          // Day 2: 安平水岸歷史風華與海味
+          [
+            { time: "09:30 - 11:00", name: "安平古堡與熱蘭遮城博物館", type: "景點", note: "台灣第一座城堡古蹟，設有無障礙坡道通往內城展覽館，古榕樹與紅磚古城牆意境悠遠。", tag: "台灣首座城", lat: 23.0016, lng: 120.1605 },
+            { time: "11:30 - 13:00", name: "安平周氏蝦捲與鮮甜虱目魚粥", type: "美食", note: "招牌現炸火燒蝦捲配現煮鮮魚高湯無刺虱目魚肚，肉質細嫩極適合長輩長者享用。", tag: "安平名產", lat: 23.0008, lng: 120.1632 },
+            { time: "13:30 - 15:00", name: "安平樹屋與德記洋行平坦木棧廊道", type: "景點", note: "百年老榕樹盤根錯節形成天然遮蔭，新建空中平緩木棧廊道，綠意蔽天清涼宜人。", tag: "天然林蔭", lat: 23.0033, lng: 120.1598 },
+            { time: "15:30 - 16:30", name: "同記安平豆花 (古早味甘蔗冰沙)", type: "休憩", note: "傳承一甲子的經典老字號，入口即化黃豆香醇厚，設有寬敞室內座席與專屬車位。", tag: "老店甜品", lat: 23.0025, lng: 120.1580 },
+            { time: "17:00 - 18:30", name: "台南運河景觀步道 & 林家養生砂鍋魚頭", type: "美食", note: "沿運河平緩水岸散步吹晚風，享用扁魚白菜慢火清燉的甘甜砂鍋鮮魚晚餐。", tag: "水岸夜景", lat: 22.9950, lng: 120.1850 }
+          ],
+          // Day 3: 新化山水綠意與郊區古意
+          [
+            { time: "09:30 - 11:00", name: "台南山上花園水道博物館", type: "景點", note: "百年國定古蹟水道設施，廣闊綠草皮提供無障礙電動遊園小火車，輕鬆免走累。", tag: "電動車遊園", lat: 23.0970, lng: 120.3533 },
+            { time: "11:30 - 13:00", name: "新化老街品味溫體牛肉湯午宴", type: "美食", note: "巴洛克洋樓老街旁，品嚐每日新鮮配送的現沖溫體牛肉湯，搭配古早味肉燥飯。", tag: "洋樓老街", lat: 23.0375, lng: 120.3108 },
+            { time: "13:30 - 15:00", name: "吳園藝文中心與公會堂水榭庭園", type: "景點", note: "閩南古典池塘綠意盎然，中式水榭涼亭環繞，長輩可悠閒坐著觀魚小憩。", tag: "古典水榭", lat: 22.9945, lng: 120.2062 },
+            { time: "15:30 - 16:30", name: "林百貨 (全台第一座商場電梯古蹟)", type: "休憩", note: "搭乘復古指針型電梯直達五樓空中神社，一覽中正路日治街景並享用冷泡椪餅冰淇淋。", tag: "文創古蹟", lat: 22.9916, lng: 120.2026 },
+            { time: "17:00 - 18:30", name: "保安路傳統老街米糕與八寶甜湯", type: "美食", note: "品嚐傳承三代的下大道米糕與軟糯阿卿杏仁花生湯，暖胃安心返程。", tag: "經典老店", lat: 22.9922, lng: 120.1985 }
+          ]
+        ],
+        youth: [
+          // Day 1: 網美美術館、國華街美食狂嗑、夕陽落日與大夜市
+          [
+            { time: "10:00 - 12:00", name: "台南市美術館二館 (純白幾何建築)", type: "景點", note: "日本建築大師坂茂設計，碎形遮陽屋頂與純白立體幾何梯田，光影灑落超殺底片。", tag: "IG爆紅第一", lat: 22.9908, lng: 120.2014 },
+            { time: "12:15 - 14:00", name: "國華街永樂市場美食狂嗑戰", type: "美食", note: "排隊名店連環吃：富盛號黑碗粿、金得春捲、邱家小卷米粉、阿松割包包子。", tag: "排隊狂熱", lat: 22.9982, lng: 120.1982 },
+            { time: "14:30 - 16:30", name: "神農街老宅文創巷弄探店", type: "體驗", note: "清代木造老街燈籠高掛，穿梭獨立手作陶藝、復古古著店與隱藏版拍立得小館。", tag: "老派街拍", lat: 22.9976, lng: 120.1969 },
+            { time: "17:00 - 18:30", name: "漁光島月牙灣沙灘夕陽衝浪", type: "景點", note: "穿越防風林木麻黃綠色大道，漫步沙灘欣賞全台灣最浪漫的橘紅落日絕景。", tag: "絕美夕陽", lat: 22.9834, lng: 120.1542 },
+            { time: "19:00 - 22:00", name: "花園夜市 / 大東夜市美食爭霸", type: "美食", note: "二師兄麻辣滷味、現炸旗魚黑輪、統大炭烤雞排、延記臭豆腐通通吃一輪。", tag: "夜市狂歡", lat: 23.0110, lng: 120.2005 }
+          ],
+          // Day 2: 袖珍亞馬遜綠隧、文章牛肉湯、廢墟文創與居酒微醺
+          [
+            { time: "09:30 - 11:30", name: "四草綠色隧道 (台版迷你亞馬遜)", type: "體驗", note: "戴斗笠搭乘竹筏穿梭在茂密紅樹林水道中，尋找倒映在水面的天使之吻秘境波光。", tag: "生態冒險", lat: 23.0195, lng: 120.1378 },
+            { time: "12:00 - 13:30", name: "文章牛肉湯 (安平旗艦店)", type: "美食", note: "冷藏特級手切溫體牛、厚切牛舌拼盤，鮮甜高湯淋在粉嫩牛肉片上的銷魂美味。", tag: "必吃排隊名店", lat: 23.0005, lng: 120.1650 },
+            { time: "14:00 - 16:00", name: "河樂廣場 The Spring 親水網美潟湖", type: "景點", note: "荷蘭MVRDV建築團隊打造，舊中國城商場改造為白色下沉式古蹟親水親景公園。", tag: "國際美學", lat: 22.9942, lng: 120.1925 },
+            { time: "16:30 - 18:00", name: "Paripari apt. 昭和喫茶館", type: "休憩", note: "墨綠色復古磁磚老宅，供應自製硬布丁、手沖咖啡與日系復古黑膠唱片氛圍。", tag: "昭和喫茶", lat: 22.9958, lng: 120.2032 },
+            { time: "18:30 - 21:30", name: "友愛街質感酒吧 & 老城微醺特調", type: "美食", note: "鄰近友愛街旅館聚落，品嚐融入台南傳統冬瓜茶與義豐冬瓜糖的特色創意雞尾酒。", tag: "府城夜生活", lat: 22.9915, lng: 120.2001 }
+          ],
+          // Day 3: 糖廠極限運動、老街巷弄、冰淇淋文創
+          [
+            { time: "10:00 - 12:30", name: "十鼓仁糖文創園區 (霍格華茲魔法工廠)", type: "體驗", note: "舊糖廠巨型糖蜜罐改建，超刺激七層樓極限高空溜滑梯與飛天掃帚打卡點。", tag: "極限飛天", lat: 22.9392, lng: 120.2312 },
+            { time: "13:00 - 14:30", name: "安平老街丹丹漢堡特色套餐", type: "美食", note: "南部限定傳奇速食：炸雞腿堡配鮮脆肉羹麵線羹，年輕人朝聖必吃南霸天。", tag: "南霸天名物", lat: 23.0010, lng: 120.1620 },
+            { time: "15:00 - 16:30", name: "蝸牛巷慢活老宅彩繪尋寶", type: "景點", note: "台南已故文學家葉石濤筆下靜謐巷弄，隱身綠植老民居間的文青彩繪與特色選物。", tag: "文青散策", lat: 22.9928, lng: 120.2010 },
+            { time: "17:00 - 18:00", name: "蜷尾家甘味處散步甜食 (正興街)", type: "休憩", note: "每日限量口味義式霜淇淋：鐵觀音烏龍茶、海鹽花生，人手一支排隊甜點。", tag: "人氣冰品", lat: 22.9946, lng: 120.1978 },
+            { time: "18:30 - 20:30", name: "武聖夜市超人氣碳烤香雞排與拔絲地瓜", type: "美食", note: "歷史最悠久的在地老夜市，大口咬下酥脆外皮與金黃拔絲熱地瓜收尾。", tag: "在地老夜市", lat: 23.0028, lng: 120.1915 }
+          ]
+        ]
+      },
+      yilan: {
+        name: "宜蘭",
+        senior: [
+          [
+            { time: "09:30 - 11:00", name: "羅東林業文化園區", type: "景點", note: "環湖平整綠意木棧道，百年綠蔭蔽空，老火車頭旁設有充足長椅。", tag: "平緩林蔭", lat: 24.6865, lng: 121.7709 },
+            { time: "11:30 - 13:00", name: "田媽媽養生百匯 (在地蔬活午宴)", type: "美食", note: "低油少鹽清爽好入口，無階梯平面進出，附設寬敞專用停車場。", tag: "暖胃午餐", lat: 24.6732, lng: 121.7580 },
+            { time: "13:30 - 15:00", name: "冬山河生態綠舟 (遮陽電動遊船)", type: "景點", note: "坐著電動船吹著河谷涼風，悠然滑過綠草如茵的水岸秘境。", tag: "坐船免久站", lat: 24.6341, lng: 121.8225 },
+            { time: "15:30 - 16:45", name: "三奇美徑純白景觀茶屋", type: "休憩", note: "眺望稻浪起伏，品飲一盞冷泡金萱茶與傳統手工米香點心。", tag: "午後茶席", lat: 24.6318, lng: 121.8152 },
+            { time: "17:15 - 19:00", name: "礁溪湯圍溝溫泉足湯 & 養生櫻桃鴨", type: "美食", note: "溫暖泉水洗滌雙足疲勞，享用肉質軟嫩多汁的宜蘭名鴨晚餐。", tag: "舒緩溫泉", lat: 24.8291, lng: 121.7712 }
+          ],
+          [
+            { time: "09:30 - 11:00", name: "蘭陽博物館景觀水岸 (室內文化展)", type: "景點", note: "斜屋頂單面山建築美學，全館無障礙平緩動線，空調涼爽。", tag: "全館電梯", lat: 24.8687, lng: 121.8329 },
+            { time: "11:30 - 13:00", name: "烏石港鮮魚海味定食", type: "美食", note: "產地直達清蒸鮮魚、軟嫩海菜吻仔魚羹，細嫩好消化。", tag: "清甜海味", lat: 24.8698, lng: 121.8375 },
+            { time: "13:30 - 15:00", name: "北關海潮公園 (平緩觀浪段)", type: "景點", note: "漫步前段平坦樹林步道，遠眺龜山島悠然海景與白浪花。", tag: "海天微風", lat: 24.9048, lng: 121.8795 },
+            { time: "15:30 - 16:30", name: "頭城老街日式木造古蹟茶坊", type: "休憩", note: "老樟樹下靜品炭焙烏龍與黑糖桂圓糕，歲月悠然靜好。", tag: "日系老屋", lat: 24.8585, lng: 121.8236 },
+            { time: "17:00 - 18:30", name: "宜蘭古早味溫體牛燉湯名店", type: "美食", note: "以蔬果熬煮清澈溫潤湯底，暖胃暖心，為旅程畫下句點。", tag: "滋補晚餐", lat: 24.7554, lng: 121.7485 }
+          ],
+          [
+            { time: "09:30 - 11:00", name: "宜蘭設治紀念館與日式庭園", type: "景點", note: "百年和洋木造官邸，老樟樹林蔭參天，園區平整無高台階。", tag: "靜謐庭院", lat: 24.7538, lng: 121.7512 },
+            { time: "11:30 - 13:00", name: "渡小月經典宜蘭手路菜", type: "美食", note: "傳統名菜糕渣、西魯肉，軟嫩入味長輩讚不絕口。", tag: "國宴午膳", lat: 24.7570, lng: 121.7580 },
+            { time: "13:30 - 15:00", name: "望龍埤環湖水岸木棧步道", type: "景點", note: "平緩紅色木棧道環繞碧綠湖泊，涼亭眾多隨時可坐歇放鬆。", tag: "碧綠湖光", lat: 24.7766, lng: 121.7011 },
+            { time: "15:30 - 16:30", name: "亞典年輪烘焙草堂", type: "休憩", note: "提供免費現煮黑咖啡與鬆軟年輪蛋糕品嚐，坐椅充裕。", tag: "午茶甜品", lat: 24.7812, lng: 121.7289 },
+            { time: "17:00 - 18:30", name: "員山手工魚丸米粉老店", type: "美食", note: "清甜高湯、滑順米粉好吞嚥，熱騰騰舒暢脾胃。", tag: "在地老味", lat: 24.7431, lng: 121.7222 }
+          ]
+        ],
+        youth: [
+          [
+            { time: "09:30 - 11:30", name: "頭城外澳雙獅沙灘衝浪", type: "景點", note: "遠眺龜山島無敵海景，踩踏浪花拍攝如宮崎駿天空般清澈大片。", tag: "水彩蔚藍", lat: 24.8778, lng: 121.8385 },
+            { time: "12:00 - 13:30", name: "滿山望海第一排落地窗午宴", type: "美食", note: "全景玻璃面對海島與浪花，招牌焦糖戚風與海鹽烤飯糰。", tag: "必拍美景", lat: 24.8690, lng: 121.8315 },
+            { time: "14:00 - 16:00", name: "中興文創老紙廠工業遺構探店", type: "體驗", note: "巨大紅磚煙囪與復古廠房，穿梭獨立手作皮革與陶藝工坊。", tag: "文創探店", lat: 24.6932, lng: 121.7688 },
+            { time: "16:30 - 18:00", name: "黑宅咖啡 (田野黑色穀倉)", type: "休憩", note: "座落稻田中央的極簡美學咖啡館，手沖單品與鞦韆拍照打卡。", tag: "稻浪咖啡", lat: 24.8325, lng: 121.7915 },
+            { time: "18:30 - 21:00", name: "羅東夜市小吃尋寶巡禮", type: "美食", note: "脆皮三星蔥油餅、當歸羊肉湯、魏姐包心粉圓通通吃遍。", tag: "夜市狂歡", lat: 24.6766, lng: 121.7689 }
+          ],
+          [
+            { time: "09:30 - 11:30", name: "斑比山丘 (小鹿水豚萌萌森林)", type: "體驗", note: "在綠草坡地上親餵溫馴小鹿與水豚，品嚐美美子手作布丁。", tag: "森林萌獸", lat: 24.6402, lng: 121.7371 },
+            { time: "12:00 - 13:30", name: "春不老驛站特色私房牛肉麵", type: "美食", note: "手打彈牙麵條佐特調秘製辣牛油，排隊必訪好味道。", tag: "在地老饕", lat: 24.6360, lng: 121.7925 },
+            { time: "14:00 - 16:00", name: "冬山波波草與彩虹鐵道騎行", type: "景點", note: "租借手繪文青單車，沿著河堤欣賞圓滾滾波波草與紅色拱橋。", tag: "單車漫遊", lat: 24.6341, lng: 121.8225 },
+            { time: "16:30 - 17:45", name: "白日夢自造所手作甜點屋", type: "休憩", note: "隱密巷弄中的吉卜力氛圍木屋，每日限量抹茶可麗露。", tag: "私房手作", lat: 24.7548, lng: 121.7530 },
+            { time: "18:15 - 20:30", name: "礁溪山泉湯屋 & 微醺精釀吧", type: "美食", note: "溫暖檜木個人湯屋，泡完來一杯宜蘭在地麥穗釀造冷飲。", tag: "夜間享受", lat: 24.8291, lng: 121.7712 }
+          ],
+          [
+            { time: "10:00 - 12:00", name: "渭水之丘 (俯瞰蘭陽平原鷹石尖)", type: "景點", note: "懸空建築延伸平台，拍出如同魔法公主馳騁天空的遼闊視野。", tag: "懸崖視角", lat: 24.8398, lng: 121.7412 },
+            { time: "12:30 - 14:00", name: "古亭穀倉美學炭烤披薩", type: "美食", note: "舊穀倉改造的當代義式披薩，柴燒香氣撲鼻。", tag: "老穀倉料理", lat: 24.7892, lng: 121.7785 },
+            { time: "14:30 - 16:00", name: "慶和橋津梅棧道 (漂浮空中走廊)", type: "景點", note: "懸掛在橋下的金屬藤蔓工業風步道，極具宮崎駿蒸汽龐克美感。", tag: "秘境空中走廊", lat: 24.7634, lng: 121.7505 },
+            { time: "16:30 - 17:30", name: "花轟小姐甜點工作室", type: "休憩", note: "隱藏在綠意庭院裡的戚風蛋糕名店，細緻鮮奶油與水果塔。", tag: "私房午茶", lat: 24.7540, lng: 121.7525 },
+            { time: "18:00 - 19:30", name: "宜蘭東門夜市嘟好燒與碳烤", type: "美食", note: "在地人從小吃到大的古早味熱炸點心與排隊碳烤。", tag: "在地美食", lat: 24.7578, lng: 121.7589 }
+          ]
+        ]
+      },
+      taichung: {
+        name: "台中",
+        senior: [
+          [
+            { time: "09:30 - 11:00", name: "國立台灣美術館與雕塑綠園道", type: "景點", note: "全館友善無障礙電梯與平緩步道，戶外草坪老樹成蔭，長椅充裕。", tag: "全館電梯", lat: 24.1415, lng: 120.6635 },
+            { time: "11:30 - 13:00", name: "美術園道景觀養生私房菜 (京華煙雲)", type: "美食", note: "典雅合菜環境舒適，低油少鹽清爽好入口，備有無障礙出入口。", tag: "養生合菜", lat: 24.1378, lng: 120.6608 },
+            { time: "13:30 - 15:00", name: "霧峰林家宮保第園區 (大花廳)", type: "景點", note: "國定歷史古蹟專人平地導覽，全台唯一福州木造大花廳戲台，古典莊嚴。", tag: "國定古蹟", lat: 24.0632, lng: 120.6989 },
+            { time: "15:30 - 16:30", name: "春水堂創始店 (四維路品茗)", type: "休憩", note: "坐在古樸木桌旁品飲正宗珍珠奶茶與手工蘿蔔糕，步調悠緩。", tag: "名店茶飲", lat: 24.1384, lng: 120.6728 },
+            { time: "17:00 - 18:30", name: "台中第二市場老字號茂川肉丸與燉湯", type: "美食", note: "傳承三代清蒸軟嫩肉丸配丁山熱高湯，長輩好咀嚼，古早味十足。", tag: "經典老味", lat: 24.1425, lng: 120.6792 }
+          ],
+          [
+            { time: "09:30 - 11:00", name: "台中中央公園 (敦化遊客中心)", type: "景點", note: "全區平坦步道，室內多媒體中心冷氣舒適，設有敬老服務台與無障礙廁所。", tag: "平緩森活", lat: 24.1848, lng: 120.6534 },
+            { time: "11:30 - 13:00", name: "文心森林公園站周邊精緻定食", type: "美食", note: "捷運站出站電梯直通，無須走大馬路即可入座享用新鮮鮮魚套餐。", tag: "捷運直達", lat: 24.1472, lng: 120.6441 },
+            { time: "13:30 - 15:00", name: "台中公園百年湖心亭與曲橋", type: "景點", note: "台中百年地標古蹟，林蔭密佈，環湖步道平整，涼亭隨時可坐歇放鬆。", tag: "百年地標", lat: 24.1442, lng: 120.6836 },
+            { time: "15:30 - 16:30", name: "一福堂百年糕餅老店品茶", type: "休憩", note: "試吃道地檸檬餅與太陽餅伴手禮，坐歇喝熱茶補充體力。", tag: "伴手禮品茗", lat: 24.1430, lng: 120.6820 },
+            { time: "17:00 - 18:30", name: "宮原眼科紅磚騎樓與醉月樓合菜", type: "美食", note: "日治老眼科紅磚歷史建築，二樓醉月樓享用典雅道地台灣手路菜。", tag: "歷史建築", lat: 24.1378, lng: 120.6833 }
+          ]
+        ],
+        youth: [
+          [
+            { time: "10:00 - 12:00", name: "台中國家歌劇院 (伊東豊雄曲牆美學)", type: "景點", note: "無梁柱曲牆建築奇蹟，六樓空中花園遠眺七期豪宅群，隨便拍都是大片。", tag: "世界地標", lat: 24.1628, lng: 120.6405 },
+            { time: "12:30 - 14:00", name: "審計新村老宿舍文創聚落", type: "美食", note: "老舊公務員宿舍改建，黑糖泡芙、小森市集、排隊手沖咖啡香氣四溢。", tag: "文創老屋", lat: 24.1465, lng: 120.6627 },
+            { time: "14:30 - 16:00", name: "草悟道勤美誠品與PARK2草悟廣場", type: "體驗", note: "大人系非典型公園，沙漠植物綠洲、風格選物店與街頭潮流聚集地。", tag: "都會潮流", lat: 24.1509, lng: 120.6634 },
+            { time: "16:30 - 18:30", name: "高美濕地景觀木棧道夕陽", type: "景點", note: "全台最美橘紅落日與巨大風車群，沿著木棧道拍天空之鏡倒影。", tag: "全台第一夕陽", lat: 24.3121, lng: 120.5501 },
+            { time: "19:30 - 22:00", name: "逢甲夜市小吃美食爭奪戰", type: "美食", note: "激旨燒鳥串燒、明倫蛋餅、日船章魚小丸子、一心臭豆腐狂吃。", tag: "夜市霸主", lat: 24.1788, lng: 120.6450 }
+          ],
+          [
+            { time: "10:00 - 12:00", name: "彩虹眷村 (Rainbow Village)", type: "景點", note: "童趣滿滿的彩繪巷弄，牆面充滿生動童話色彩，色彩斑斕好拍照。", tag: "童趣美拍", lat: 24.1338, lng: 120.6098 },
+            { time: "12:30 - 14:00", name: "第二市場山河魯肉飯與王家菜頭粿", type: "美食", note: "在地饕客排隊老字號：肥嫩三層肉魯肉飯佐半熟蛋與現煎酥脆蘿蔔糕。", tag: "在地老味道", lat: 24.1428, lng: 120.6790 },
+            { time: "14:30 - 16:00", name: "第四信用合作社 (老銀行金庫吃冰)", type: "休憩", note: "舊銀行鋼骨水泥與金庫大門改建，超澎湃冰淇淋聖代與現烤格子鬆餅。", tag: "金庫吃冰", lat: 24.1385, lng: 120.6825 },
+            { time: "16:30 - 18:30", name: "台中市役所與綠川水岸廊道", type: "景點", note: "辰野金吾式巴洛克百年洋樓，沿著綠川欣賞蒲公英水岸夜燈倒影。", tag: "巴洛克水岸", lat: 24.1390, lng: 120.6805 },
+            { time: "19:00 - 21:30", name: "一中街商圈必吃美食巡禮", type: "美食", note: "一中豪大雞排、上石便所主題餐廳、豐仁冰、半月燒連嗑好味道。", tag: "學生商圈", lat: 24.1492, lng: 120.6850 }
+          ]
+        ]
+      },
+      kaohsiung: {
+        name: "高雄",
+        senior: [
+          [
+            { time: "09:30 - 11:00", name: "高雄港棧貳庫KW2與白色旋轉木馬", type: "景點", note: "舊碼頭倉庫無障礙平整木棧板，海風徐徐，坐看大船進出港灣。", tag: "海港平緩", lat: 22.6190, lng: 120.2778 },
+            { time: "11:30 - 13:00", name: "旗津海鮮老店現撈清蒸活魚", type: "美食", note: "平緩渡輪直達旗津，品嚐清蒸石斑魚、現燙白蝦，口味清甜長輩稱讚。", tag: "港口海鮮", lat: 22.6135, lng: 120.2690 },
+            { time: "13:30 - 15:00", name: "駁二藝術特區蓬萊倉庫綠廊", type: "景點", note: "沿輕軌旁綠草皮漫步，步道全平地少台階，百年老倉庫古樸舒適。", tag: "全平地園區", lat: 22.6200, lng: 120.2815 },
+            { time: "15:30 - 16:30", name: "旗津老街大碗公水果冰", type: "休憩", note: "新鮮當季芒果、西瓜與香蕉刨冰，坐歇吹冷氣放鬆。", tag: "消暑水果", lat: 22.6130, lng: 120.2685 },
+            { time: "17:00 - 18:30", name: "愛河水岸漫步 & 鹽埕鴨肉珍經典晚餐", type: "美食", note: "平緩愛河畔散步，品嚐傳承65年的香氣鴨肉飯與下水湯。", tag: "鹽埕老字號", lat: 22.6265, lng: 120.2818 }
+          ],
+          [
+            { time: "09:30 - 11:00", name: "衛武營國家藝術文化中心戶外園區", type: "景點", note: "榕樹造型流線白色前衛建築，全園區有無障礙平順動線，湖畔景觀優美。", tag: "國家級無障礙", lat: 22.6248, lng: 120.3440 },
+            { time: "11:30 - 13:00", name: "鳳山傳統養生溫體牛肉清湯", type: "美食", note: "湯頭以蔬菜慢熬，甘甜順口，牛肉鮮嫩好咀嚼。", tag: "養生牛肉湯", lat: 22.6280, lng: 120.3550 },
+            { time: "13:30 - 15:00", name: "鳳儀書院 (全台最大清代書院古蹟)", type: "景點", note: "修復完善的清代古書院，Q版科舉塑像平緩好走，文化趣味十足。", tag: "歷史古蹟", lat: 22.6262, lng: 120.3605 },
+            { time: "15:30 - 16:30", name: "打狗英國領事館官邸下午茶", type: "休憩", note: "搭乘專屬電梯登高，俯瞰西子灣海景與高雄港夕照，品嚐英式紅茶。", tag: "海景洋樓", lat: 22.6180, lng: 120.2665 },
+            { time: "17:00 - 18:30", name: "六合觀光夜市海產粥與莊記海鮮", type: "美食", note: "滿滿鮮蝦、蚵仔、蛤蜊的甘甜海鮮高湯粥，溫潤養胃無負擔。", tag: "夜市海產粥", lat: 22.6320, lng: 120.3015 }
+          ]
+        ],
+        youth: [
+          [
+            { time: "10:00 - 12:30", name: "大港橋旋轉秀與駁二大義倉庫群", type: "景點", note: "全台首座水平旋轉大橋，拍港灣前衛金屬感，穿梭特色獨立文創選物店。", tag: "港灣美拍", lat: 22.6195, lng: 120.2845 },
+            { time: "12:45 - 14:00", name: "鹽埕駁二丹丹漢堡潮流套餐", type: "美食", note: "南部速食霸主：鮮脆雞腿堡搭配香濃赤肉麵線羹，神級平價美味。", tag: "南霸天名產", lat: 22.6235, lng: 120.2790 },
+            { time: "14:30 - 16:30", name: "旗津彩虹教堂與海珍珠巨型雕塑", type: "體驗", note: "租借電動四輪車奔馳海岸線，幾何彩色教堂與金色海貝殼絕美街拍。", tag: "IG爆紅景點", lat: 22.5975, lng: 120.2835 },
+            { time: "17:00 - 18:30", name: "西子灣海景防波堤夕陽秘境", type: "景點", note: "坐在防波堤上看橘金色落日沉入台灣海峽，海風浪漫。", tag: "夕陽聖地", lat: 22.6240, lng: 120.2625 },
+            { time: "19:00 - 22:00", name: "瑞豐夜市天使雞排與萬國牛排", type: "美食", note: "超厚爆汁天使雞排、現煎酥香蔥油餅、西班牙燉飯夜市狂吃。", tag: "高雄最強夜市", lat: 22.6675, lng: 120.3010 }
+          ],
+          [
+            { time: "10:00 - 12:00", name: "高雄流行音樂中心 (音浪塔珊瑚礁群)", type: "景點", note: "太空感前衛六角型幾何建築群，港灣水面倒影如同科幻電影場景。", tag: "科幻地標", lat: 22.6215, lng: 120.2925 },
+            { time: "12:30 - 14:00", name: "鹽埕區米糕城與阿財雞絲麵", type: "美食", note: "在地排隊必吃：鹹香四溢古早味米糕搭配旗魚鬆與手撕雞絲乾麵。", tag: "排隊名店", lat: 22.6255, lng: 120.2810 },
+            { time: "14:30 - 16:30", name: "壽山動物園 (天空光廊空中步道)", type: "體驗", note: "漫步在離地數公尺的無障礙空中廊道，俯瞰台灣黑熊與水豚賣萌。", tag: "空中漫步", lat: 22.6335, lng: 120.2785 },
+            { time: "17:00 - 18:00", name: "鹽埕老街昭和風格小食茶房", type: "休憩", note: "舊街廓日式昭和風裝潢，品嚐手作抹茶芭菲與炭焙烏龍茶。", tag: "復古喫茶", lat: 22.6245, lng: 120.2805 },
+            { time: "18:30 - 21:00", name: "高雄港邊微醺露天餐酒館 (KW2貨櫃碼頭)", type: "美食", note: "坐在棧貳庫戶外露天高腳椅，吹著港灣夜風，享受現烤披薩與在地精釀啤酒。", tag: "碼頭夜生活", lat: 22.6190, lng: 120.2778 }
+          ]
+        ]
+      },
+      hualien: {
+        name: "花蓮",
+        senior: [
+          [
+            { time: "09:30 - 11:30", name: "七星潭風景區平緩聽濤步道", type: "景點", note: "月牙灣礫石海灘，步道平緩設有景觀涼亭，遠眺清水斷崖與太平洋。", tag: "太平洋壯景", lat: 24.0305, lng: 121.6295 },
+            { time: "12:00 - 13:30", name: "花蓮市區排隊美食公正包子與周家蒸餃", type: "美食", note: "厚皮多汁小籠包配熱豆漿與清蒸肉餃，軟嫩好消化。", tag: "排隊名店", lat: 23.9782, lng: 121.6092 },
+            { time: "14:00 - 15:30", name: "太魯閣遊客中心景觀台地", type: "景點", note: "客運直達，冷氣多媒體視聽導覽、戶外台地步道全平地有坡道。", tag: "無障礙坡道", lat: 24.1578, lng: 121.6225 },
+            { time: "16:00 - 17:00", name: "松園別館 (百年琉球松古蹟茶坊)", type: "休憩", note: "日治軍官俱樂部木造建築，百年松樹成蔭，品茗遠眺花蓮港。", tag: "松林古蹟", lat: 23.9820, lng: 121.6145 },
+            { time: "17:30 - 19:00", name: "花蓮鐵道文化園區老火車 & 原民風味餐", type: "美食", note: "舊東線鐵道舊車廂歷史園區，步道平坦，享用竹筒飯與烤鹹豬肉。", tag: "懷舊鐵道", lat: 23.9744, lng: 121.6074 }
+          ],
+          [
+            { time: "09:30 - 11:30", name: "雲山水夢幻湖 (落羽松森林)", type: "景點", note: "湖面倒影如畫，可租乘平坦電動高爾夫球車代步遊園免走累。", tag: "電動車代步", lat: 23.8322, lng: 121.5097 },
+            { time: "12:00 - 13:30", name: "光復糖廠啄木鳥茶坊在地時蔬簡餐", type: "美食", note: "無障礙木棧道，享用花蓮在地有機時蔬定食與知名糖廠老冰棒。", tag: "糖廠回憶", lat: 23.6628, lng: 121.4239 },
+            { time: "14:00 - 15:30", name: "林田山林業文化園區中山堂", type: "景點", note: "日式檜木聚落，於平坦步道漫步，感受濃郁天然檜木清香。", tag: "檜木清香", lat: 23.7547, lng: 121.4011 },
+            { time: "16:00 - 17:00", name: "瑞穗牧場新鮮鮮奶與乳酪蛋糕", type: "休憩", note: "戶外木椅觀看乳牛吃草，享用新鮮現擠鮮奶與手工乳酪點心。", tag: "牧場時光", lat: 23.4985, lng: 121.3650 },
+            { time: "17:30 - 19:00", name: "玉里傳統橋頭臭豆腐與玉里麵", type: "美食", note: "外酥內嫩臭豆腐搭配滿滿清甜白蘿蔔絲，湯頭溫潤鮮美。", tag: "在地老饕", lat: 23.3325, lng: 121.3120 }
+          ]
+        ],
+        youth: [
+          [
+            { time: "09:30 - 11:30", name: "太魯閣砂卡礑步道大理石翡翠溪", type: "景點", note: "沿大理石溪流開鑿的岩壁步道，欣賞碧綠如翡翠的清澈溪水。", tag: "峽谷奇景", lat: 24.1601, lng: 121.6145 },
+            { time: "12:00 - 13:30", name: "太魯閣天祥特色山產竹筒飯料理", type: "美食", note: "現蒸竹筒香飯配高山清脆高麗菜與放山土雞肉。", tag: "山產美味", lat: 24.1824, lng: 121.4939 },
+            { time: "14:00 - 16:00", name: "貨櫃星巴克洄瀾門市 (白色積木美拍)", type: "休憩", note: "由日本大師隈研吾設計，廢棄貨櫃交疊如同巨型樂高積木。", tag: "世界級建築", lat: 23.9315, lng: 121.5975 },
+            { time: "16:30 - 18:00", name: "太平洋公園海堤自行車道海風漫騎", type: "景點", note: "租借公路單車沿濱海自行車道前進，傍晚吹海風賞絕美夕陽。", tag: "海濱兜風", lat: 23.9688, lng: 121.6125 },
+            { time: "18:30 - 21:30", name: "東大門國際觀光夜市小吃暴吃戰", type: "美食", note: "強蛋餅、第一家烤肉串、原住民竹筒酒與法式官財板狂吃。", tag: "夜市霸榜", lat: 23.9730, lng: 121.6120 }
+          ],
+          [
+            { time: "10:00 - 12:00", name: "石梯坪海蝕壺穴與單面山岩石", type: "景點", note: "壯麗海蝕平台岩石大景，爬上單面山眺望太平洋湛藍浪花。", tag: "海蝕奇觀", lat: 23.4905, lng: 121.5125 },
+            { time: "12:30 - 14:00", name: "伊娜飛魚原住民柴燒燻飛魚午宴", type: "美食", note: "原住民傳統燻柴手撕飛魚、石板烤肉與旗魚卵香腸佐糯米飯。", tag: "原鄉美味", lat: 23.5010, lng: 121.5080 },
+            { time: "14:30 - 16:00", name: "親不知子海上透明玻璃古道", type: "景點", note: "懸掛在垂直斷崖峭壁上的透明玻璃步道，腳下直接是太平洋驚濤浪花。", tag: "懸崖玻璃步道", lat: 23.6350, lng: 121.5360 },
+            { time: "16:30 - 17:30", name: "山度空間山海鞦韆美拍咖啡", type: "休憩", note: "超夯玻璃泡泡球鞦韆與無敵海景野餐平台，打卡網美聖地。", tag: "IG爆紅第一", lat: 23.9025, lng: 121.6020 },
+            { time: "18:00 - 20:30", name: "溝仔尾文青小館與焦糖包心粉圓", type: "美食", note: "老街巷弄中的日系文青小餐館，品嚐古法焦糖刨冰與Q彈包心粉圓。", tag: "巷弄甜點", lat: 23.9748, lng: 121.6035 }
+          ]
+        ]
+      }
+    };
+
+    function generateSmartPlan(destKey, destName, daysCount, groupType) {
+      let daysData = [];
+      const isSenior = (groupType === 'senior');
+      const isYouth = (groupType === 'youth');
+
+      // 1. 若該城市在資料庫中有真實精編行程（如台南、宜蘭、台中、高雄、花蓮等）
+      if (GENERATOR_DATABASE[destKey]) {
+        const pool = isYouth ? GENERATOR_DATABASE[destKey].youth : GENERATOR_DATABASE[destKey].senior;
+        for (let i = 0; i < daysCount; i++) {
+          const baseSpots = pool[i % pool.length];
+          const daySpots = baseSpots.map(s => ({
+            ...s,
+            id: Math.random().toString(),
+          }));
+          daysData.push(daySpots);
+        }
+        return daysData;
+      }
+
+      // 2. 若為全台其他自訂城市（如南投、嘉義、屏東、台北、台東等），採用真實具體的熱門旅遊推薦模板
+      const citySpecificThemes = {
+        senior: [
+          // Day 1
+          [
+            { time: "09:30 - 11:00", suffix: "國家級國家公園景觀園區", type: "景點", note: "全區設有無障礙平順木棧道與斜坡，林木參天，林蔭坐椅充足，避開陡坡台階。", tag: "平緩好走" },
+            { time: "11:30 - 13:00", suffix: "在地名產農莊養生風味合菜", type: "美食", note: "嚴選在地產銷履歷小農時蔬，低油少鹽清爽易嚼，備有平面專屬停車場與無階梯門面。", tag: "暖胃午餐" },
+            { time: "13:30 - 15:00", suffix: "國定歷史古蹟文化故事館", type: "景點", note: "日式和風老官邸古蹟，全館冷氣舒適、環境靜謐，設有電梯與導覽解說。", tag: "歷史古蹟" },
+            { time: "15:30 - 16:30", suffix: "百年古道茶寮傳統茶席", type: "休憩", note: "老樟樹微風下品飲台灣頂級高山烏龍冷熱茶，搭配純手工綠豆糕點心坐歇小憩。", tag: "午後茶席" },
+            { time: "17:00 - 18:30", suffix: "老字號溫體清燉鮮魚燉湯老店", type: "美食", note: "清燉鮮魚搭配慢火熬煮甘甜蔬菜高湯，熱騰騰舒暢脾胃，長輩讚不絕口。", tag: "滋補晚餐" }
+          ],
+          // Day 2
+          [
+            { time: "09:30 - 11:00", suffix: "湖畔水岸親水林道景觀園區", type: "景點", note: "沿著平整湖畔木道漫步，欣賞水鳥與山光水色，可租乘平坦電動車遊園更省力。", tag: "水岸漫步" },
+            { time: "11:30 - 13:00", suffix: "在地傳承數十年招牌手路菜", type: "美食", note: "經典在地家鄉菜餚，燉煮軟爛入味好吞嚥，環境清雅寬敞。", tag: "老店手路菜" },
+            { time: "13:30 - 15:00", suffix: "傳統林業/糖廠鐵道文化園區", type: "景點", note: "舊鐵道火車站與退役檜木老車廂，園區平整無障礙，滿滿懷舊時代共鳴。", tag: "懷舊鐵道" },
+            { time: "15:30 - 16:30", suffix: "百年糕餅傳承名店品茶", type: "休憩", note: "坐歇品嚐古早味鬆軟綠豆椪與高山茶，順道挑選長輩喜愛的傳統伴手禮。", tag: "伴手禮品茗" },
+            { time: "17:00 - 18:30", suffix: "水岸景觀步道 & 鮮味砂鍋鮮魚", type: "美食", note: "水岸夜景散步吹涼風，享用扁魚白菜慢火清燉的甘甜砂鍋鮮魚晚餐。", tag: "夜景晚餐" }
+          ],
+          // Day 3
+          [
+            { time: "09:30 - 11:00", suffix: "百年綠意植物園/森林雕塑公園", type: "景點", note: "平緩林蔭大道，百年老樹遮蔽烈陽，涼亭密集方便長輩隨時坐下喝水休息。", tag: "林蔭清涼" },
+            { time: "11:30 - 13:00", suffix: "田園景觀蔬活百匯餐廳", type: "美食", note: "在地野菜清燙鮮嫩佐特調芝麻醬，清爽無負擔，平地進出好便利。", tag: "在地蔬活" },
+            { time: "13:30 - 15:00", suffix: "客家/原民文化典藏文物館", type: "景點", note: "室內冷氣舒適、動線平順，展示傳統編織與木藝古物，知性悠閒。", tag: "室內知性" },
+            { time: "15:30 - 16:30", suffix: "古法手作手工豆腐花老舖", type: "休憩", note: "細緻滑順非基改黃豆香，入口即化好吞嚥，搭配古法熬製甘蔗糖水。", tag: "古早甜品" },
+            { time: "17:00 - 18:30", suffix: "傳統老街溫體牛肉/藥膳排骨", type: "美食", note: "熱氣騰騰的滋補溫潤湯頭，補充旅途體力，暖胃暖心返程。", tag: "溫潤補氣" }
+          ]
+        ],
+        youth: [
+          // Day 1
+          [
+            { time: "10:00 - 12:00", suffix: "當代美學建築藝術園區", type: "景點", note: "前衛幾何線條與採光極佳純白天井，光影層次豐富，隨拍都是IG氛圍感大片。", tag: "IG爆紅第一" },
+            { time: "12:15 - 14:00", suffix: "排隊名店經典小吃狂嗑聚落", type: "美食", note: "在地老字號連環吃：招牌香脆肉羹、爆汁小籠包與祖傳秘方排隊小吃。", tag: "排隊美食" },
+            { time: "14:30 - 16:30", suffix: "老宅文創巷弄手作選物街區", type: "體驗", note: "百年老民居穿梭，尋訪個性獨立插畫、手工陶藝選品與隱藏版拍立得小舖。", tag: "老街文創" },
+            { time: "17:00 - 18:30", suffix: "全景日落沙灘/夕陽觀景台", type: "景點", note: "橘紅落日沉入地平線的絕美黃金時刻，海風浪漫，美照拍不停。", tag: "絕美夕陽" },
+            { time: "19:00 - 22:00", suffix: "超人氣觀光夜市小吃美食狂歡", type: "美食", note: "超大厚切炭烤雞排、現炸地瓜球、排骨酥湯與古早味冬瓜檸檬連環吃。", tag: "夜市狂歡" }
+          ],
+          // Day 2
+          [
+            { time: "09:30 - 11:30", suffix: "大自然秘境綠意隧道/峽谷冒險", type: "體驗", note: "深入溪谷與綠意環抱的大自然秘境，打卡大自然鬼斧神工巨石與清澈水波。", tag: "秘境探險" },
+            { time: "12:00 - 13:30", suffix: "特色創意私房料理/在地南霸天名產", type: "美食", note: "主廚特製私房醬汁與在地食材創新搭配，年輕人回訪率極高的人氣名店。", tag: "人氣餐廳" },
+            { time: "14:00 - 16:00", suffix: "舊糖廠/老倉庫工業廢墟極限文創", type: "體驗", note: "巨型鋼構廠房、高空溜滑梯與文青手作展演，拍照打卡超酷炫。", tag: "廢墟美學" },
+            { time: "16:30 - 18:00", suffix: "昭和復古喫茶店/極光美學咖啡館", type: "休憩", note: "大面落地窗映著綠意，自製焦糖硬布丁、手沖單品與特色氣泡特調飲。", tag: "美拍午茶" },
+            { time: "18:30 - 21:30", suffix: "老城區風格酒吧 & 地方特色微醺夜生活", type: "美食", note: "將在地名產特色融入茶酒特調，在迷人燈影與音樂中放鬆暢聊。", tag: "夜間微醺" }
+          ],
+          // Day 3
+          [
+            { time: "10:00 - 12:30", suffix: "超萌小動物互動森林/海天步道", type: "體驗", note: "近距離親餵溫馴水豚與梅花鹿，拍下萌翻天互動瞬間。", tag: "超萌互動" },
+            { time: "13:00 - 14:30", suffix: "老饕私房排隊牛肉麵/炭烤海鮮", type: "美食", note: "手打彈牙麵條佐特調秘製香辣牛油，排隊必吃經典好滋味。", tag: "老饕私房" },
+            { time: "15:00 - 16:30", suffix: "彩繪眷村/空中透明景觀步道", type: "景點", note: "走在空中步道俯瞰壯闊景色，或在充滿童趣彩繪的巷弄間捕捉鮮豔色彩。", tag: "高空打卡" },
+            { time: "17:00 - 18:00", suffix: "排隊限量霜淇淋/手作可麗露甜點", type: "休憩", note: "人手一支的濃郁茶香霜淇淋與剛出爐外脆內軟的手作甜點。", tag: "人氣甜品" },
+            { time: "18:30 - 20:30", suffix: "在地老字號宵夜排檔熱炒巡禮", type: "美食", note: "大火快炒現撈海味與經典古早味宵夜點心，為旅程畫下完美句點。", tag: "宵夜排檔" }
+          ]
+        ]
+      };
+
+      const cityPool = isYouth ? citySpecificThemes.youth : citySpecificThemes.senior;
+      for (let day = 1; day <= daysCount; day++) {
+        const templateDay = cityPool[(day - 1) % cityPool.length];
+        const spots = templateDay.map((t, idx) => ({
+          id: `${day}-${idx}-${Date.now()}`,
+          time: t.time,
+          name: `${destName}・${t.suffix}`,
+          type: t.type,
+          note: t.note,
+          tag: t.tag,
+          lat: 23.5 + (day * 0.05) + (idx * 0.01),
+          lng: 120.5 + (day * 0.05) + (idx * 0.01)
+        }));
+        daysData.push(spots);
+      }
+      return daysData;
+    }
+
+    let currentPlanState = {
+      destKey: 'yilan',
+      destName: '宜蘭',
+      days: 2,
+      group: 'senior',
+      transport: 'drive'
+    };
+
+    let draftFilter = { ...currentPlanState };
+    let activeDayIndex = 0;
+    let itineraryDays = [];
+
+    const headerSubtitle = document.getElementById('header-subtitle');
+    const badgeDest = document.getElementById('badge-dest');
+    const badgeDays = document.getElementById('badge-days');
+    const badgeGroup = document.getElementById('badge-group');
+    const badgeTransport = document.getElementById('badge-transport');
+    const planTitle = document.getElementById('plan-title');
+    const planDesc = document.getElementById('plan-desc');
+    const tabIndicator = document.getElementById('tab-indicator');
+    const dayTabsContainer = document.getElementById('day-tabs-container');
+    const timelineList = document.getElementById('timeline-list');
+    const filterSheet = document.getElementById('filter-sheet');
+    const btnOpenFilter = document.getElementById('btn-open-filter');
+    const btnCloseFilter = document.getElementById('btn-close-filter');
+    const btnApplyFilter = document.getElementById('btn-apply-filter');
+    const selectDest = document.getElementById('select-destination');
+    const inputCustomDest = document.getElementById('input-custom-dest');
+    const customDaysBox = document.getElementById('custom-days-box');
+    const inputCustomDays = document.getElementById('input-custom-days');
+    const btnAddSpot = document.getElementById('btn-add-spot');
+    const addModal = document.getElementById('add-modal');
+    const btnCloseModal = document.getElementById('btn-close-modal');
+    const btnCancelAdd = document.getElementById('btn-cancel-add');
+    const formAddSpot = document.getElementById('form-add-spot');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+
+    function showToast(msg) {
+      toastText.textContent = msg;
+      toast.classList.remove('-translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('-translate-y-20', 'opacity-0');
+      }, 2400);
+    }
+
+
+    const STORAGE_KEY = 'ghibli_taiwan_travel_storage_v2';
+    const saveStatusEl = document.getElementById('save-status');
+
+    function flashSaveIndicator() {
+      if (!saveStatusEl) return;
+      saveStatusEl.classList.remove('opacity-50');
+      saveStatusEl.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>已離線儲存';
+    }
+
+    function saveToLocalStorage() {
+      try {
+        const payload = {
+          version: '2.0',
+          timestamp: Date.now(),
+          state: currentPlanState,
+          itineraryDays: itineraryDays
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+        flashSaveIndicator();
+      } catch (e) {
+        console.warn('LocalStorage save error:', e);
+      }
+    }
+
+    function loadFromLocalStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const saved = JSON.parse(raw);
+          if (saved && saved.state && Array.isArray(saved.itineraryDays) && saved.itineraryDays.length > 0) {
+            currentPlanState = saved.state;
+            draftFilter = { ...saved.state };
+            itineraryDays = saved.itineraryDays;
+            flashSaveIndicator();
+            return true;
+          }
+        }
+      } catch (e) {
+        console.warn('LocalStorage read error:', e);
+      }
+      return false;
+    }
+
+    // 重置為系統推薦按鈕
+    const btnResetDefault = document.getElementById('btn-reset-default');
+    if (btnResetDefault) {
+      btnResetDefault.onclick = () => {
+        if (confirm('確定要清除所有自行增刪的景點，恢復成這趟行程的系統初始推薦嗎？')) {
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch(e) {}
+          buildItinerary(true);
+          filterSheet.classList.add('hidden');
+          showToast('已還原為初始推薦行程！');
+        }
+      };
+    }
+
+
+    function buildItinerary(isFromScratch = true) {
+      if (isFromScratch) {
+        itineraryDays = generateSmartPlan(currentPlanState.destKey, currentPlanState.destName, currentPlanState.days, currentPlanState.group);
+      }
+      activeDayIndex = 0;
+
+      const groupNames = { senior: '❤️ 孝親慢活', family: '👥 成年親友', youth: '✨ 年輕活力' };
+      const transportNames = { drive: '🚗 自駕漫遊', public: '🚌 大眾捷運/好行' };
+
+      headerSubtitle.textContent = `${currentPlanState.destName}・${currentPlanState.days}日遊・${groupNames[currentPlanState.group].replace(/^[^\s]+\s/, '')}`;
+      badgeDest.textContent = currentPlanState.destName;
+      badgeDays.textContent = `${currentPlanState.days} 日遊`;
+      badgeGroup.textContent = groupNames[currentPlanState.group];
+      badgeTransport.textContent = transportNames[currentPlanState.transport];
+
+      planTitle.textContent = `${currentPlanState.destName}・${currentPlanState.days}日慢活舒心遊`;
+      planDesc.textContent = currentPlanState.group === 'senior' 
+        ? '「步道平緩如茵、微風拂面，每站皆備有林蔭歇椅與養生在地小食。」'
+        : (currentPlanState.group === 'youth' 
+          ? '「穿梭青山碧海與文青巷弄，捕捉宮崎駿動畫般的青空與美拍光影。」' 
+          : '「漫步山水自然地標，品嚐純樸溫暖的在地古早味，從容閒適。」');
+
+      tabIndicator.textContent = `共 ${currentPlanState.days} 天・每日 ${itineraryDays[0]?.length || 5} 個地點`;
+
+      renderDayTabs();
+      renderCurrentDaySpots();
+      saveToLocalStorage();
+    }
+
+    function renderDayTabs() {
+      dayTabsContainer.innerHTML = '';
+      for (let i = 0; i < currentPlanState.days; i++) {
+        const btn = document.createElement('button');
+        const isActive = (i === activeDayIndex);
+        btn.className = `shrink-0 px-4 py-2 rounded-2xl text-xs font-bold transition flex items-center gap-1.5 border ${
+          isActive 
+            ? 'tab-active' 
+            : 'bg-white text-[#556b60] border-[#d8cbba] hover:bg-[#f6f0e4]'
+        }`;
+        btn.innerHTML = `
+          <span>Day ${i + 1}</span>
+          <span class="text-[10px] ${isActive ? 'bg-white/20 text-white' : 'bg-[#eaf4ee] text-[#3d705c]'} px-1.5 py-0.2 rounded-full font-bold">
+            ${itineraryDays[i]?.length || 0}站
+          </span>
+        `;
+        btn.onclick = () => {
+          activeDayIndex = i;
+          renderDayTabs();
+          renderCurrentDaySpots();
+        };
+        dayTabsContainer.appendChild(btn);
+      }
+    }
+
+    function renderCurrentDaySpots() {
+      timelineList.innerHTML = '';
+      const daySpots = itineraryDays[activeDayIndex] || [];
+
+      if (daySpots.length === 0) {
+        timelineList.innerHTML = `
+          <div class="bg-white p-8 rounded-3xl text-center border border-[#e4d8c5] text-[#8c6d53] shadow-paper">
+            <i data-lucide="map-pin-off" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+            <p class="text-xs font-bold">這一天暫無行程，請點擊下方新增景點！</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      daySpots.forEach((spot, idx) => {
+        const card = document.createElement('div');
+        card.className = "ghibli-card p-4 sm:p-4.5 flex items-start justify-between gap-3 relative transition hover:border-[#4a856f]";
+
+        let badgeStyle = "bg-[#eaf4ee] text-[#366854] border-[#c6e4d4]";
+        let icon = "trees";
+        if (spot.type === '美食') {
+          badgeStyle = "bg-[#fcf0e7] text-[#c2622f] border-[#f5d4be]";
+          icon = "utensils";
+        } else if (spot.type === '休憩') {
+          badgeStyle = "bg-[#e7f2f5] text-[#3a7385] border-[#bedce3]";
+          icon = "coffee";
+        } else if (spot.type === '體驗') {
+          badgeStyle = "bg-[#f3edf9] text-[#784ca3] border-[#ded1ee]";
+          icon = "sparkles";
+        }
+
+        card.innerHTML = `
+          <div class="flex items-start gap-2 flex-1">
+            <!-- 拖曳手柄 handle (手機觸控長按/拖曳) -->
+            <div class="drag-handle p-1 -ml-1 text-[#b5a793] hover:text-[#4a856f] cursor-grab active:cursor-grabbing touch-none select-none flex items-center justify-center shrink-0" title="長按拖曳以調整前後順序">
+              <i data-lucide="grip-vertical" class="w-4 h-4"></i>
+            </div>
+            <!-- 序號圈圈 -->
+            <div class="w-7 h-7 rounded-xl bg-gradient-to-br from-[#4a856f] to-[#68a890] text-white font-black text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+              ${idx + 1}
+            </div>
+            
+            <div class="space-y-1 flex-1">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeStyle} flex items-center gap-1">
+                  <i data-lucide="${icon}" class="w-3 h-3"></i>
+                  ${spot.type}
+                </span>
+                <span class="text-[11px] font-semibold text-[#687b73] flex items-center gap-1">
+                  <i data-lucide="clock" class="w-3 h-3 text-[#de7d49]"></i>
+                  ${spot.time}
+                </span>
+                ${spot.tag ? `<span class="text-[10px] bg-[#f5ede0] text-[#7d6046] px-1.5 py-0.2 rounded-md font-bold">✓ ${spot.tag}</span>` : ''}
+              </div>
+              <h4 class="text-sm font-extrabold text-[#2d3d36] leading-snug">${spot.name}</h4>
+              <p class="text-xs text-[#52665c] leading-relaxed font-normal">${spot.note}</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-end gap-2 shrink-0">
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spot.name)}" target="_blank" class="px-2.5 py-1.5 rounded-xl bg-[#e7f2f5] hover:bg-[#d5eaf0] text-[#2c6575] text-[11px] font-bold border border-[#bedce3] flex items-center gap-1 transition">
+              <i data-lucide="map" class="w-3 h-3"></i> 地圖
+            </a>
+            <button onclick="removeSpot(${idx})" class="text-[#b5a793] hover:text-red-500 p-1 transition" title="刪除此站點">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `;
+        timelineList.appendChild(card);
+      });
+
+      lucide.createIcons();
+      setupDragAndDrop();
+    }
+
+    window.removeSpot = function(index) {
+      if (confirm(`確定要從行程中移除這個地點嗎？`)) {
+        itineraryDays[activeDayIndex].splice(index, 1);
+        renderCurrentDaySpots();
+        renderDayTabs();
+        saveToLocalStorage();
+        showToast('已移除地點');
+      }
+    };
+
+    function navigateCurrentDay() {
+      const spots = itineraryDays[activeDayIndex] || [];
+      if (spots.length === 0) {
+        alert('當日還沒有安排景點喔！');
+        return;
+      }
+      if (spots.length === 1) {
+        window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(spots[0].name)}`, '_blank');
+        return;
+      }
+      const origin = encodeURIComponent(spots[0].name);
+      const destination = encodeURIComponent(spots[spots.length - 1].name);
+      const travelmode = currentPlanState.transport === 'drive' ? 'driving' : 'transit';
+
+      let waypoints = '';
+      if (spots.length > 2) {
+        const intermediate = spots.slice(1, -1).map(s => encodeURIComponent(s.name));
+        waypoints = `&waypoints=${intermediate.join('|')}`;
+      }
+      const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}${waypoints}&travelmode=${travelmode}`;
+      window.open(url, '_blank');
+    }
+
+    document.getElementById('btn-open-gmaps-day').onclick = navigateCurrentDay;
+    document.getElementById('btn-direct-gmaps').onclick = navigateCurrentDay;
+
+    document.getElementById('btn-copy-line').onclick = () => {
+      let text = `🌿【漫旅台灣・慢活行程表】\n📌 目的地：${currentPlanState.destName} (${currentPlanState.days}日遊)\n`;
+      text += `👥 風格：${badgeGroup.textContent} | 🚗 交通：${badgeTransport.textContent}\n\n`;
+
+      itineraryDays.forEach((daySpots, dIdx) => {
+        text += `🍃 === Day ${dIdx + 1} ===\n`;
+        daySpots.forEach((s, sIdx) => {
+          text += `${sIdx + 1}. [${s.time}] ${s.name} (${s.type})\n   💡 備註：${s.note}\n`;
+        });
+        text += `\n`;
+      });
+      text += `🗺️ 祝福旅途微風徐徐、身心放鬆！`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('已複製整份 LINE 慢活行程！');
+      }).catch(() => {
+        showToast('請手動選取複製');
+      });
+    };
+
+    document.getElementById('btn-export-kml').onclick = () => {
+      let placemarks = '';
+      itineraryDays.forEach((daySpots, dIdx) => {
+        daySpots.forEach((spot, sIdx) => {
+          const lng = spot.lng || 121.5;
+          const lat = spot.lat || 24.0;
+          placemarks += `
+    <Placemark>
+      <name>Day ${dIdx + 1}-${sIdx + 1}. ${spot.name} (${spot.type})</name>
+      <description><![CDATA[時段: ${spot.time}<br>天數: Day ${dIdx + 1}<br>備註: ${spot.note}]]></description>
+      <Point>
+        <coordinates>${lng},${lat},0</coordinates>
+      </Point>
+    </Placemark>`;
+        });
+      });
+
+      const kmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>${currentPlanState.destName} ${currentPlanState.days}日漫旅地圖</name>
+    <description>${planDesc.textContent}</description>
+    ${placemarks}
+  </Document>
+</kml>`;
+
+      const blob = new Blob([kmlContent], { type: 'application/vnd.google-earth.kml+xml;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${currentPlanState.destName}_${currentPlanState.days}日遊.kml`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('KML 地圖檔案已下載！');
+    };
+
+    // ★ 抽屜面板控制：純數據驅動，徹底杜絕選擇器拋錯中斷 ★
+    function syncDrawerUI() {
+      selectDest.value = draftFilter.destKey;
+      if (draftFilter.destKey === 'custom') {
+        inputCustomDest.classList.remove('hidden');
+        inputCustomDest.value = draftFilter.destName;
+      } else {
+        inputCustomDest.classList.add('hidden');
+      }
+
+      // 天數按鈕樣式切換
+      document.querySelectorAll('.day-btn').forEach(btn => {
+        const d = btn.dataset.days;
+        if (d === String(draftFilter.days) || (d === 'custom' && draftFilter.days > 3)) {
+          btn.className = "day-btn py-2 text-xs font-bold rounded-2xl border-2 border-[#4a856f] bg-[#eaf4ee] text-[#2c6351]";
+        } else {
+          btn.className = "day-btn py-2 text-xs font-bold rounded-2xl border border-[#d8cbba] bg-white text-[#475e54]";
+        }
+      });
+      if (draftFilter.days > 3) {
+        customDaysBox.classList.remove('hidden');
+        inputCustomDays.value = draftFilter.days;
+      } else {
+        customDaysBox.classList.add('hidden');
+      }
+
+      // 族群卡片樣式切換
+      document.querySelectorAll('.group-card').forEach(card => {
+        if (card.dataset.group === draftFilter.group) {
+          card.className = "group-card cursor-pointer p-3 rounded-2xl border-2 border-[#4a856f] bg-[#eaf4ee]/80 flex items-center gap-3 transition";
+        } else {
+          card.className = "group-card cursor-pointer p-3 rounded-2xl border border-[#d8cbba] bg-white flex items-center gap-3 transition";
+        }
+      });
+
+      // 交通卡片樣式切換
+      document.querySelectorAll('.transport-card').forEach(card => {
+        if (card.dataset.transport === draftFilter.transport) {
+          card.className = "transport-card cursor-pointer p-2.5 rounded-2xl border-2 border-[#4a856f] bg-[#eaf4ee] flex items-center gap-2";
+        } else {
+          card.className = "transport-card cursor-pointer p-2.5 rounded-2xl border border-[#d8cbba] bg-white flex items-center gap-2";
+        }
+      });
+    }
+
+    btnOpenFilter.onclick = () => {
+      draftFilter = { ...currentPlanState };
+      syncDrawerUI();
+      filterSheet.classList.remove('hidden');
+    };
+
+    btnCloseFilter.onclick = () => filterSheet.classList.add('hidden');
+
+    selectDest.onchange = (e) => {
+      draftFilter.destKey = e.target.value;
+      if (e.target.value === 'custom') {
+        inputCustomDest.classList.remove('hidden');
+        inputCustomDest.focus();
+      } else {
+        inputCustomDest.classList.add('hidden');
+        draftFilter.destName = selectDest.options[selectDest.selectedIndex].text.split(' ')[0];
+      }
+    };
+
+    document.querySelectorAll('.day-btn').forEach(btn => {
+      btn.onclick = () => {
+        const d = btn.dataset.days;
+        if (d === 'custom') {
+          customDaysBox.classList.remove('hidden');
+          draftFilter.days = parseInt(inputCustomDays.value, 10) || 4;
+        } else {
+          customDaysBox.classList.add('hidden');
+          draftFilter.days = parseInt(d, 10);
+        }
+        syncDrawerUI();
+      };
+    });
+
+    inputCustomDays.onchange = (e) => {
+      draftFilter.days = parseInt(e.target.value, 10) || 4;
+    };
+
+    document.querySelectorAll('.group-card').forEach(card => {
+      card.onclick = () => {
+        draftFilter.group = card.dataset.group;
+        syncDrawerUI();
+      };
+    });
+
+    document.querySelectorAll('.transport-card').forEach(card => {
+      card.onclick = () => {
+        draftFilter.transport = card.dataset.transport;
+        syncDrawerUI();
+      };
+    });
+
+    btnApplyFilter.onclick = () => {
+      if (draftFilter.destKey === 'custom') {
+        const val = inputCustomDest.value.trim();
+        if (!val) {
+          alert('請輸入您想去的地點或城市！');
+          return;
+        }
+        draftFilter.destName = val;
+      }
+
+      currentPlanState = { ...draftFilter };
+      buildItinerary(true);
+      filterSheet.classList.add('hidden');
+      showToast(`已成功切換為 ${currentPlanState.destName}・${currentPlanState.days}日遊！`);
+    };
+
+    btnAddSpot.onclick = () => addModal.classList.remove('hidden');
+    btnCloseModal.onclick = () => addModal.classList.add('hidden');
+    btnCancelAdd.onclick = () => addModal.classList.add('hidden');
+
+    formAddSpot.onsubmit = (e) => {
+      e.preventDefault();
+      const name = document.getElementById('add-name').value.trim();
+      const time = document.getElementById('add-time').value.trim() || '彈性時光';
+      const type = document.getElementById('add-type').value;
+      const note = document.getElementById('add-note').value.trim() || '自選私房慢活地點';
+
+      if (!name) return;
+
+      itineraryDays[activeDayIndex].push({
+        id: Date.now().toString(),
+        name,
+        time,
+        type,
+        note,
+        tag: '私房自選'
+      });
+
+      renderCurrentDaySpots();
+      renderDayTabs();
+      addModal.classList.add('hidden');
+      formAddSpot.reset();
+      saveToLocalStorage();
+      showToast(`已加入行程：「${name}」`);
+    };
+
+    
+    // ★ 1. 手指拖曳排序系統 (SortableJS 深度整合) ★
+    let sortableInstance = null;
+    function setupDragAndDrop() {
+      if (sortableInstance) {
+        sortableInstance.destroy();
+      }
+      if (!timelineList) return;
+
+      sortableInstance = new Sortable(timelineList, {
+        handle: '.drag-handle',
+        animation: 250,
+        ghostClass: 'opacity-40',
+        chosenClass: 'scale-[1.02]',
+        dragClass: 'shadow-float',
+        delay: 50, // 手機防誤觸微延遲
+        delayOnTouchOnly: true,
+        onEnd: function(evt) {
+          const oldIndex = evt.oldIndex;
+          const newIndex = evt.newIndex;
+          if (oldIndex === newIndex) return;
+
+          // 重新排序內部景點陣列
+          const currentDaySpots = itineraryDays[activeDayIndex];
+          const [movedSpot] = currentDaySpots.splice(oldIndex, 1);
+          currentDaySpots.splice(newIndex, 0, movedSpot);
+
+          // 重新渲染時間軸與儲存
+          renderCurrentDaySpots();
+          saveToLocalStorage();
+          showToast(`已調整為第 ${newIndex + 1} 個地點！`);
+        }
+      });
+    }
+
+    // ★ 2. 多組行程存檔 / 行程庫管理 (Multi-Trip Archive Vault) ★
+    const VAULT_KEY = 'ghibli_taiwan_saved_trips_vault_v1';
+    const tripsSheet = document.getElementById('trips-sheet');
+    const btnOpenMyTrips = document.getElementById('btn-open-my-trips');
+    const btnCloseTrips = document.getElementById('btn-close-trips');
+    const btnSaveAsNew = document.getElementById('btn-save-as-new');
+    const savedTripsList = document.getElementById('saved-trips-list');
+    const savedTripsCount = document.getElementById('saved-trips-count');
+    const currentSavingName = document.getElementById('current-saving-name');
+
+    function getTripsVault() {
+      try {
+        const raw = localStorage.getItem(VAULT_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveTripsVault(vault) {
+      try {
+        localStorage.setItem(VAULT_KEY, JSON.stringify(vault));
+      } catch (e) {
+        console.warn('Vault save error:', e);
+      }
+    }
+
+    function renderTripsVaultUI() {
+      const vault = getTripsVault();
+      savedTripsCount.textContent = `${vault.length} 組收藏`;
+      currentSavingName.textContent = `目前：${currentPlanState.destName} ${currentPlanState.days}日遊 (${itineraryDays.reduce((acc, d) => acc + d.length, 0)}個站點)`;
+
+      if (vault.length === 0) {
+        savedTripsList.innerHTML = `
+          <div class="bg-white p-6 rounded-2xl text-center border border-[#e4d8c5] text-[#8c6d53]">
+            <i data-lucide="bookmark-x" class="w-8 h-8 mx-auto mb-1.5 opacity-50 text-[#b5a793]"></i>
+            <p class="text-xs font-bold text-[#556b60]">目前尚無收藏的行程</p>
+            <p class="text-[10px] text-[#8c6d53] mt-0.5">點擊上方「存為新行程」即可將這趟旅程永久保存！</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      savedTripsList.innerHTML = '';
+      vault.forEach((item, index) => {
+        const totalSpots = item.itineraryDays.reduce((acc, day) => acc + day.length, 0);
+        const card = document.createElement('div');
+        card.className = "bg-white p-3 rounded-2xl border border-[#d8cbba] hover:border-[#4a856f] shadow-paper flex flex-col gap-2 transition";
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[10px] bg-[#eaf4ee] text-[#366854] font-bold px-2 py-0.2 rounded-md border border-[#c6e4d4]">${item.destName}</span>
+                <span class="text-[10px] bg-[#fdf6ec] text-[#de7d49] font-bold px-2 py-0.2 rounded-md border border-[#f5d4be]">${item.days}日遊</span>
+                <span class="text-[10px] text-[#8c6d53] font-medium">${totalSpots}個站點</span>
+              </div>
+              <h4 class="text-sm font-extrabold text-[#2d3d36] mt-1">${item.title}</h4>
+              <p class="text-[10px] text-[#8c6d53]">建立時間：${new Date(item.createdAt).toLocaleDateString('zh-TW', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            </div>
+            <div class="flex items-center gap-1 shrink-0">
+              <button onclick="deleteTripFromVault('${item.id}')" class="p-1.5 text-[#b5a793] hover:text-red-500 rounded-lg hover:bg-rose-50 transition" title="刪除此行程">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 pt-1 border-t border-[#f5ede0]">
+            <button onclick="loadTripFromVault('${item.id}')" class="flex-1 ghibli-btn-primary py-1.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1 transition">
+              <i data-lucide="folder-open" class="w-3.5 h-3.5"></i> 載入此行程
+            </button>
+            <button onclick="renameTripInVault('${item.id}')" class="px-3 py-1.5 bg-[#f4ede1] hover:bg-[#eae1d0] text-[#3d5047] rounded-xl text-xs font-bold border border-[#d8cbba] transition">
+              更名
+            </button>
+          </div>
+        `;
+        savedTripsList.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    // 另存當前行程
+    btnSaveAsNew.onclick = () => {
+      const defaultName = `${currentPlanState.destName}・${currentPlanState.days}日${currentPlanState.group === 'senior' ? '孝親舒心' : (currentPlanState.group === 'youth' ? '美拍探店' : '家庭慢活')}之旅`;
+      const tripTitle = prompt('請為這份行程取一個好記的名稱：', defaultName);
+      if (!tripTitle || !tripTitle.trim()) return;
+
+      const vault = getTripsVault();
+      const newTripItem = {
+        id: 'trip_' + Date.now(),
+        title: tripTitle.trim(),
+        destKey: currentPlanState.destKey,
+        destName: currentPlanState.destName,
+        days: currentPlanState.days,
+        group: currentPlanState.group,
+        transport: currentPlanState.transport,
+        createdAt: Date.now(),
+        state: JSON.parse(JSON.stringify(currentPlanState)),
+        itineraryDays: JSON.parse(JSON.stringify(itineraryDays))
+      };
+
+      vault.unshift(newTripItem); // 新加入的排在最前
+      saveTripsVault(vault);
+      renderTripsVaultUI();
+      showToast(`已成功保存「${tripTitle.trim()}」到行程庫！`);
+    };
+
+    // 載入行程
+    window.loadTripFromVault = function(tripId) {
+      const vault = getTripsVault();
+      const target = vault.find(t => t.id === tripId);
+      if (!target) return;
+
+      if (confirm(`確定要切換載入「${target.title}」嗎？\n當前未保存的修改將會被覆蓋。`)) {
+        currentPlanState = JSON.parse(JSON.stringify(target.state));
+        draftFilter = { ...currentPlanState };
+        itineraryDays = JSON.parse(JSON.stringify(target.itineraryDays));
+
+        buildItinerary(false); // 不重算，直接使用載入的資料
+        tripsSheet.classList.add('hidden');
+        showToast(`已載入「${target.title}」！`);
+      }
+    };
+
+    // 更名
+    window.renameTripInVault = function(tripId) {
+      const vault = getTripsVault();
+      const target = vault.find(t => t.id === tripId);
+      if (!target) return;
+
+      const newTitle = prompt('請輸入新的行程名稱：', target.title);
+      if (newTitle && newTitle.trim()) {
+        target.title = newTitle.trim();
+        saveTripsVault(vault);
+        renderTripsVaultUI();
+        showToast('已更新行程名稱！');
+      }
+    };
+
+    // 刪除單一行程
+    window.deleteTripFromVault = function(tripId) {
+      const vault = getTripsVault();
+      const target = vault.find(t => t.id === tripId);
+      if (!target) return;
+
+      if (confirm(`確定要刪除「${target.title}」嗎？`)) {
+        const updatedVault = vault.filter(t => t.id !== tripId);
+        saveTripsVault(updatedVault);
+        renderTripsVaultUI();
+        showToast('已刪除該筆收藏');
+      }
+    };
+
+    btnOpenMyTrips.onclick = () => {
+      renderTripsVaultUI();
+      tripsSheet.classList.remove('hidden');
+    };
+    btnCloseTrips.onclick = () => tripsSheet.classList.add('hidden');
+
+
+    // 初始載入優先從 LocalStorage 讀取
+    const hasCache = loadFromLocalStorage();
+    buildItinerary(!hasCache);
+    lucide.createIcons();
+  </script>
+</body>
+</html>
